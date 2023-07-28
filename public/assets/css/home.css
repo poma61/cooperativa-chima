@@ -1,0 +1,161 @@
+* {
+    font-size: 17px;
+}
+
+
+/*container login*/
+.container-login {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/assets/images/img-login-fondo.jpg);
+    background-size: cover;
+}
+
+
+.container-login .image-logueo {
+    position: relative;
+    z-index: 9999;
+}
+
+.container-login .image-logueo .logueo__img {
+    display: inline-block;
+    width: 450px;
+    min-width: 450px;
+    height: 560px;
+    min-height: 560px;
+    position: relative;
+}
+
+
+.container-login .mi-form-control {
+    width: 400px;
+    min-width: 400px;
+    background-color: rgba(184, 184, 184, 0.476);
+    height: 560px;
+    max-height: 560px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.container-login .mi-form-control .title-form {
+    font-size: 30px;
+    text-align: center;
+}
+
+.container-login .image-logueo-logo {
+    width: 100%;
+}
+
+.container-login .image-logueo-logo .logueo-logo__img {
+    display: block;
+    width: 200px;
+    height: 200px;
+    margin: auto;
+}
+
+.container-login .mi-form-control .campo-form-control {
+    height: 70px;
+    margin-top: 5px;
+}
+
+
+.container-login .mi-form-control .campo-form-control input {
+    margin-top: 5px;
+    width: 100%;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    height: 30px;
+    border-bottom: 3px solid #000000;
+    transition: border-bottom 0.5s;
+}
+
+.container-login .mi-form-control .campo-form-control input:focus {
+    border-bottom: 3px solid #daab02;
+}
+
+
+.container-login .mi-form-control .btn-form {
+    margin-top: 5px;
+    width: 100%;
+
+    height: 70px;
+}
+
+.container-login .mi-form-control .btn-form button {
+    display: block;
+    margin: auto;
+    border: none;
+    padding: 10px;
+    background-color: #ffc800;
+    transition: background-color 1s;
+    border-radius: 5px;
+    font-size: 17px; 
+}
+
+.container-login .mi-form-control .btn-form button:hover {
+    background-color: #fee690;
+}
+.container-login .mi-form-control .btn-form p {
+    margin-top: 2px;
+   position: relative;
+   text-align: center;
+   padding:11px 0px;
+   width: 100%;
+   border-bottom:3px solid rgb(255, 0, 0);
+   background-color: rgba(255, 130, 130, 0.406);
+   border-radius:5px;
+}
+
+
+
+@media only screen and (max-width:800px) {
+
+    * {
+        font-size: 15px;
+    }
+
+    .container-login {
+        flex-direction: column;
+
+    }
+
+
+    .container-login .image-logueo .logueo__img {     
+        width: 300px;
+        min-width: 200px;
+        height: 200px;
+        min-height: 200px;
+    
+    }
+
+
+    .container-login .mi-form-control {
+        width: 300px;
+        min-width: 300px;
+        height: 440px;
+
+    }
+    .container-login .mi-form-control .title-form {
+        font-size: 20px;
+    }
+    .container-login .image-logueo-logo .logueo-logo__img {
+        width: 100px;
+        height: 100px;
+    }
+
+ 
+    .container-login .mi-form-control .campo-form-control {
+        height: 60px;
+    }
+    .container-login .mi-form-control .btn-form button {
+        font-size: 13px;
+    }
+   
+
+}

@@ -1,0 +1,149 @@
+* {
+    font-size: 16px;
+}
+
+
+
+body {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-right: 15px;
+    margin-left: 50px;
+    padding: 0px;
+}
+
+/*encabezado*/
+.margenes-pdf-all {
+    border: 5px solid #ff0000;
+    height: 95%;
+    position: fixed;
+    width: 90%;
+    z-index: 0;
+    left: 50px;
+    top: 25px;
+}
+
+.margenes-pdf-all .margenes-pdf {
+    border: 5px solid #2c5198;
+    height: 99.2%;
+}
+
+/*contenido pdf*/
+.container-pdf {
+    width: 93%;
+    margin: auto;
+}
+
+
+/*encabezado*/
+.container-pdf .encabezado {
+    height: fit-content;
+    margin: 0px auto;
+    padding: 0px;
+}
+
+.container-pdf .encabezado .table-titles {
+    background-color: #2f549a;
+    padding: 10px;
+    width: 100%;
+}
+
+.container-pdf .encabezado .table-titles tr td:nth-child(1) {
+    width: 100px;
+    height: 100px;
+}
+
+.container-pdf .encabezado .table-titles tr td:nth-child(1) img {
+    border: 1px solid #fff;
+    border-radius: 50%;
+}
+
+
+.container-pdf .encabezado .table-titles tr td:nth-child(2) h2 {
+    font-size: 25px;
+    text-decoration: underline;
+    letter-spacing: 3px;
+    text-align: center;
+    color: #dec246;
+    font-weight: bold;
+}
+
+.container-pdf .encabezado .table-titles tr td:nth-child(2) small {
+    display: block;
+    font-size: 20px;
+    letter-spacing: 3px;
+    text-align: center;
+    color: #dec246;
+    margin-top: 5px;
+    text-decoration: underline;
+}
+
+
+/*.container-table-informacion  informacion del socio*/
+.container-pdf .container-table-informacion {
+    width: 100%;
+    border-bottom: 5px double #2f549a;
+
+}
+
+
+.container-pdf .container-table-informacion .table-informacion {
+    width: 100%;
+}
+
+.container-pdf .container-table-informacion .table-informacion tbody tr td {
+    padding: 10px;
+}
+
+.container-pdf .container-table-informacion .table-informacion tbody tr:nth-child(1) td h4 {
+    color: #2f549a;
+    text-align: center;
+    font-size: 19px;
+    letter-spacing: 3px;
+}
+
+.container-pdf .container-table-informacion .table-informacion tbody tr td:nth-child(1) {
+    width: 200px;
+    color: #d90000;
+    text-align: right;
+}
+
+.container-pdf .container-table-informacion .table-informacion tbody tr:last-child td:nth-child(3) {
+    width: 200px;
+    color: #d90000;
+}
+
+.container-pdf .container-table-informacion .table-informacion tbody tr:last-child td:nth-child(3) p {
+    color: #000;
+    display: inline;
+    width: fit-content;
+}
+
+/*.container-table-informacion  informacion del historial */
+.container-pdf .container-table-informacion-all {
+    width: 100%;
+
+}
+
+.container-pdf .container-table-informacion-all .table-informacion-all {
+    width: 100%;
+}
+
+
+.container-pdf .container-table-informacion-all .table-informacion-all tbody tr td {
+    padding: 10px;
+ 
+}
+.container-pdf .container-table-informacion-all .table-informacion-all tbody tr:nth-child(1) td {
+    color: #d90000;
+
+}
+.container-pdf .container-table-informacion-all .table-informacion-all tbody tr:last-child td {
+   text-align: center;
+
+  }
+
+.container-pdf .container-table-informacion-all .table-informacion-all tbody tr:last-child td img {
+  width: 600px;
+  height: 600px;
+}
