@@ -49,14 +49,14 @@
 
                             <li class="item-menu-opciones">
                                 <a class="color-100"
-                                    href="{{route('route-mantenimiento-equipo-pesado',MyEncryption::encrypt($equipo_pesado->id))}}">
+                                    href="{{route('route-mantenimiento-equipo-pesado',Crypt::encrypt($equipo_pesado->id))}}">
                                     <i class="zmdi zmdi-wrench"></i> <span>Mantenimiento</span></a>
                             </li>
 
                             @if($mantenimiento_equipo_pesado->id!=0)
                             <li class="item-menu-opciones">
                                 <a class="color-100"
-                                    href="{{route('route-ver-mantenimiento-equipo-pesado',MyEncryption::encrypt($mantenimiento_equipo_pesado->id))}}">
+                                    href="{{route('route-ver-mantenimiento-equipo-pesado',Crypt::encrypt($mantenimiento_equipo_pesado->id))}}">
                                     <i class="zmdi zmdi-wrench"></i> <span> Registro</span></a>
                             </li>
                             @endif
@@ -104,10 +104,10 @@
                         <form action="" class="mi-form-control" id="mi-form">
 
                             @if($mantenimiento_equipo_pesado->id==0)
-                            <input type="hidden" value="{{MyEncryption::encrypt($equipo_pesado->id)}}"
+                            <input type="hidden" value="{{Crypt::encrypt($equipo_pesado->id)}}"
                                 name="id-equipo-pesado">
                             @else
-                            <input type="hidden" value="{{MyEncryption::encrypt($mantenimiento_equipo_pesado->id)}}"
+                            <input type="hidden" value="{{Crypt::encrypt($mantenimiento_equipo_pesado->id)}}"
                                 name="id-reg">
                             @endif
                             <p class="form-aviso-campos"><i class="zmdi zmdi-label"></i> INFORMACION</p>

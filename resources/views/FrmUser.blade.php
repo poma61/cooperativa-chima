@@ -56,7 +56,7 @@
 
                     <form class="mi-form-control" id="mi-form" enctype="multipart/form-data">
                         @if($user->id!=0)
-                        <input type="hidden" name="id-reg" value="{{MyEncryption::encrypt($user->users_id)}}">
+                        <input type="hidden" name="id-reg" value="{{Crypt::encrypt($user->users_id)}}">
                         @endif
 
                         <p class="form-aviso-campos"><i class="zmdi zmdi-label"></i> INFORMACIÓN</p>

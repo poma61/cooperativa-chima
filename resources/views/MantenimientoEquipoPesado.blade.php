@@ -50,29 +50,29 @@
 
                             <li class="item-menu-opciones">
                                 <a class="color-100"
-                                    href="{{route('route-ver-equipo-pesado',MyEncryption::encrypt($equipo_pesado->id))}}">
+                                    href="{{route('route-ver-equipo-pesado',Crypt::encrypt($equipo_pesado->id))}}">
                                     <i class="zmdi zmdi-file-text"></i><span> Registro</span></a>
                             </li>
 
                             <li class="item-menu-opciones">
                                 <a class="color-100"
-                                    href="{{route('route-mantenimiento-equipo-pesado',MyEncryption::encrypt($equipo_pesado->id))}}">
+                                    href="{{route('route-mantenimiento-equipo-pesado',Crypt::encrypt($equipo_pesado->id))}}">
                                     <i class="zmdi zmdi-wrench"></i> <span>Mantenimiento</span></a>
                             </li>
 
                             <li class="item-menu-opciones">
                                 <a class="color-100"
-                                    href="{{route('route-frm-new-mantenimiento-equipo-pesado',MyEncryption::encrypt($equipo_pesado->id))}}">
+                                    href="{{route('route-frm-new-mantenimiento-equipo-pesado',Crypt::encrypt($equipo_pesado->id))}}">
                                     <i class="zmdi zmdi-plus"></i> <span>Nuevo Mantenimiento</span></a>
                             </li>
                             <li class="item-menu-opciones">
                                 <a class="color-100"
-                                    href="{{route('route-pdf-mantenimiento-equipo-pesado',MyEncryption::encrypt($equipo_pesado->id))}}">
+                                    href="{{route('route-pdf-mantenimiento-equipo-pesado',Crypt::encrypt($equipo_pesado->id))}}">
                                     <i class="zmdi zmdi-download"></i><span>PDF</span></a>
                             </li>
                             <li class="item-menu-opciones">
                                 <a class="color-100"
-                                    href="{{route('route-imprimir-mantenimiento-equipo-pesado',MyEncryption::encrypt($equipo_pesado->id))}}">
+                                    href="{{route('route-imprimir-mantenimiento-equipo-pesado',Crypt::encrypt($equipo_pesado->id))}}">
                                     <i class="zmdi zmdi-print"></i><span>Imprmir</span></a>
                             </li>
                         </ul>
@@ -147,7 +147,7 @@
                                         <td>{{$row->num_reg}}</td>
                                         <td>{{date_format(date_create($row->fecha_de_ingreso),'d/m/Y')}}</td>
                                         <td>{{$row->caracteristicas}}</td>
-                                        <td><a href="{{route('route-ver-mantenimiento-equipo-pesado',MyEncryption::encrypt($row->id))}}"
+                                        <td><a href="{{route('route-ver-mantenimiento-equipo-pesado',Crypt::encrypt($row->id))}}"
                                                 class="ver-registro ">
                                                 <i class="zmdi zmdi-wrench"></i></a></td>
                                     </tr>
@@ -159,7 +159,7 @@
                                         <td>{{$row->num_reg}}</td>
                                         <td>{{date_format(date_create($row->fecha_de_ingreso),'d/m/Y')}}</td>
                                         <td>{{$row->caracteristicas}}</td>
-                                        <td><a href="{{route('route-ver-mantenimiento-equipo-pesado',MyEncryption::encrypt($row->id))}}"
+                                        <td><a href="{{route('route-ver-mantenimiento-equipo-pesado',Crypt::encrypt($row->id))}}"
                                                 class="ver-registro ">
                                                 <i class="zmdi zmdi-wrench"></i></a></td>
                                     </tr>

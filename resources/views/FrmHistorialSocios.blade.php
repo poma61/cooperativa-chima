@@ -51,7 +51,7 @@
                 <section class="container-menu-opciones-pagina">
                     <ul class="list-menu-opciones">
                         <li class="item-menu-opciones">
-                            <a href="{{route('route-historial-socios',MyEncryption::encrypt($socios->id))}}">Historial
+                            <a href="{{route('route-historial-socios',Crypt::encrypt($socios->id))}}">Historial
                                 <i class="zmdi zmdi-file-text"></i></a>
                         </li>
                     </ul>
@@ -93,9 +93,9 @@
                     <p>Los campos marcados con (*) son obligatorios</p>
 
                     <form class="mi-form-control" id="mi-form">
-                        <input type="hidden" name="id_socio" value="{{MyEncryption::encrypt($socios->id)}}">
+                        <input type="hidden" name="id_socio" value="{{Crypt::encrypt($socios->id)}}">
                         @if($historial_socios->id!=0)
-                        <input type="hidden" name="id-reg" value="{{MyEncryption::encrypt($historial_socios->id)}}">
+                        <input type="hidden" name="id-reg" value="{{Crypt::encrypt($historial_socios->id)}}">
                         @endif
                         <div class="form-control-colum-2">
                             <div class="campo-form-control-2">

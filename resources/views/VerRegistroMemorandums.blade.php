@@ -51,28 +51,28 @@
 
                             <li class="item-menu-opciones">
                                 <a class="color-100"
-                                    href="{{route('route-frm-show-registro-memorandums',MyEncryption::encrypt($registro_memorandums->id))}}">
+                                    href="{{route('route-frm-show-registro-memorandums',Crypt::encrypt($registro_memorandums->id))}}">
                                     <i class="zmdi zmdi-border-color"></i><span> Actualizar</span> </a>
                             </li>
                             <li class="item-menu-opciones">
                                 <a class="color-100" style="cursor:pointer;" id="btn-accion"
                                     data-action="confirm-destroy"
-                                    data-id_reg="{{MyEncryption::encrypt($registro_memorandums->id)}}">
+                                    data-id_reg="{{Crypt::encrypt($registro_memorandums->id)}}">
                                     <i class="zmdi zmdi-delete"></i><span> Eliminar</span></a>
                             </li>
                             <li class="item-menu-opciones">
                                 <a class="color-100"
-                                    href="{{route('route-ver-registro-memorandums',MyEncryption::encrypt($registro_memorandums->id))}}">
+                                    href="{{route('route-ver-registro-memorandums',Crypt::encrypt($registro_memorandums->id))}}">
                                     <i class="zmdi zmdi-file-text"></i><span> Registro</span></a>
                             </li>
                             <li class="item-menu-opciones">
                                 <a class="color-100"
-                                    href="{{route('route-pdf-ver-registro-memorandums',MyEncryption::encrypt($registro_memorandums->id))}}">
+                                    href="{{route('route-pdf-ver-registro-memorandums',Crypt::encrypt($registro_memorandums->id))}}">
                                     <i class="zmdi zmdi-download"></i><span> PDF</span> </a>
                             </li>
                             <li class="item-menu-opciones">
                                 <a class="color-100"
-                                    href="{{route('route-imprimir-ver-registro-memorandums',MyEncryption::encrypt($registro_memorandums->id))}}">
+                                    href="{{route('route-imprimir-ver-registro-memorandums',Crypt::encrypt($registro_memorandums->id))}}">
                                     <i class="zmdi zmdi-print"></i><span> Imprimir</span></a>
                             </li>
 

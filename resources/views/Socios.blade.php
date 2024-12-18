@@ -87,7 +87,7 @@
                                     <td>{{date_format(date_create($row->ci_valido),'d/m/Y')}}</td>
                                     <td>{{$row->celular}}</td>
                                     <td>
-                                        <a href="{{route('route-perfil-socios',MyEncryption::encrypt($row->id))}}"
+                                        <a href="{{route('route-perfil-socios',Crypt::encrypt($row->id))}}"
                                             class="perfil-reg"><i class="zmdi zmdi-account-box"></i></a>
                                     </td>
 
@@ -104,7 +104,7 @@
                                     <td>{{date_format(date_create($row->ci_valido),'d/m/Y')}}</td>
                                     <td>{{$row->celular}}</td>
                                     <td>
-                                        <a href="{{route('route-perfil-socios',MyEncryption::encrypt($row->id))}}"
+                                        <a href="{{route('route-perfil-socios',Crypt::encrypt($row->id))}}"
                                             class="perfil-reg"><i class="zmdi zmdi-account-box"></i></a>
                                     </td>
                                 </tr>

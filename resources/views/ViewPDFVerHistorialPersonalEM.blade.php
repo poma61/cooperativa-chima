@@ -51,35 +51,35 @@
 
                         <li class="item-menu-opciones">
                             <a
-                                href="{{route('route-historial-personal-mita',MyEncryption::encrypt($historial_personal_em_personal_em->id_personal_em))}}">
+                                href="{{route('route-historial-personal-mita',Crypt::encrypt($historial_personal_em_personal_em->id_personal_em))}}">
                                 Historial <i class="zmdi zmdi-file-text"></i></a>
                         </li>
                         <li class="item-menu-opciones">
                             <a
-                                href="{{route('route-ver-historial-personal-mita',MyEncryption::encrypt($historial_personal_em_personal_em->id_historial_personal_em))}}">
+                                href="{{route('route-ver-historial-personal-mita',Crypt::encrypt($historial_personal_em_personal_em->id_historial_personal_em))}}">
                                 Ver Historial <i class="zmdi zmdi-file-text"></i></a>
                         </li>
 
                         <li class="item-menu-opciones">
                             <a
-                                href="{{route('route-frm-show-historial-personal-mita',MyEncryption::encrypt($historial_personal_em_personal_em->id_historial_personal_em))}}">
+                                href="{{route('route-frm-show-historial-personal-mita',Crypt::encrypt($historial_personal_em_personal_em->id_historial_personal_em))}}">
                                 Actualizar <i class="zmdi zmdi-border-color"></i></a>
                         </li>
                         <li class="item-menu-opciones">
                             <a style="cursor:pointer" id="btn-accion"
-                                data-id_personal_em="{{MyEncryption::encrypt($historial_personal_em_personal_em->id_personal_em)}}"
+                                data-id_personal_em="{{Crypt::encrypt($historial_personal_em_personal_em->id_personal_em)}}"
                                 data-action="confirm-destroy"
-                                data-id_reg="{{MyEncryption::encrypt($historial_personal_em_personal_em->id_historial_personal_em)}}">Eliminar
+                                data-id_reg="{{Crypt::encrypt($historial_personal_em_personal_em->id_historial_personal_em)}}">Eliminar
                                 <i class="zmdi zmdi-delete"></i></a>
                         </li>
                         <li class="item-menu-opciones">
                             <a
-                                href="{{route('route-pdf-ver-historial-personal-mita',MyEncryption::encrypt($historial_personal_em_personal_em->id_historial_personal_em))}}">PDF
+                                href="{{route('route-pdf-ver-historial-personal-mita',Crypt::encrypt($historial_personal_em_personal_em->id_historial_personal_em))}}">PDF
                                 <i class="zmdi zmdi-download"></i></a>
                         </li>
                         <li class="item-menu-opciones">
                             <a
-                                href="{{route('route-imprimir-ver-historial-personal-mita',MyEncryption::encrypt($historial_personal_em_personal_em->id_historial_personal_em))}}">Imprimir
+                                href="{{route('route-imprimir-ver-historial-personal-mita',Crypt::encrypt($historial_personal_em_personal_em->id_historial_personal_em))}}">Imprimir
                                 <i class="zmdi zmdi-print"></i></a>
                         </li>
                     </ul>

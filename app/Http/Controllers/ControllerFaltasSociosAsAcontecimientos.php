@@ -8,7 +8,7 @@ use App\Models\Socios;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Protected\MyEncryption;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
@@ -53,7 +53,7 @@ class ControllerFaltasSociosAsAcontecimientos extends Controller
             $faltas_socios_as_acontecimientos = new FaltasSociosAsAcontecimientos($request->all());
             $faltas_socios_as_acontecimientos->status = true;
             $faltas_socios_as_acontecimientos->id_usuario = Auth::user()->id;
-            $faltas_socios_as_acontecimientos->id_socio = MyEncryption::decrypt($request->input('id_socio'));
+            $faltas_socios_as_acontecimientos->id_socio = Crypt::decrypt($request->input('id_socio'));
             $faltas_socios_as_acontecimientos->save();
 
             $data = [
@@ -92,7 +92,7 @@ class ControllerFaltasSociosAsAcontecimientos extends Controller
                 'faltas_socios_as_acontecimientos.*'
             )
             ->where('socios.status', true)
-            ->where('faltas_socios_as_acontecimientos.id', MyEncryption::decrypt($id))
+            ->where('faltas_socios_as_acontecimientos.id', Crypt::decrypt($id))
             ->where('faltas_socios_as_acontecimientos.status', true)
             ->first();
 
@@ -101,7 +101,7 @@ class ControllerFaltasSociosAsAcontecimientos extends Controller
                 return view('PageNotFound', ['tipo_error' => 'NULL']);
             }
 
-          $id_socio=MyEncryption::encrypt($faltas_socios_as_acontecimientos->id_socio);
+          $id_socio=Crypt::encrypt($faltas_socios_as_acontecimientos->id_socio);
           $faltas_socios_as_acontecimientos->id_socio=$id_socio;
 
             $data = [
@@ -132,7 +132,7 @@ class ControllerFaltasSociosAsAcontecimientos extends Controller
         }
 
         try {
-            $faltas_socios_as_acontecimientos = FaltasSociosAsAcontecimientos::where('status', true)->find(MyEncryption::decrypt($request->input('id-reg')));
+            $faltas_socios_as_acontecimientos = FaltasSociosAsAcontecimientos::where('status', true)->find(Crypt::decrypt($request->input('id-reg')));
 
             if ($faltas_socios_as_acontecimientos == null) {
                 $validar['errors_db'] = true;
@@ -143,7 +143,7 @@ class ControllerFaltasSociosAsAcontecimientos extends Controller
             $faltas_socios_as_acontecimientos->fill($request->all());
 
             $faltas_socios_as_acontecimientos->id_usuario = Auth::user()->id;
-            $faltas_socios_as_acontecimientos->id_socio = MyEncryption::decrypt($request->input('id_socio'));
+            $faltas_socios_as_acontecimientos->id_socio = Crypt::decrypt($request->input('id_socio'));
             $faltas_socios_as_acontecimientos->update();
 
             $data = [
@@ -175,7 +175,7 @@ class ControllerFaltasSociosAsAcontecimientos extends Controller
         //esto podria causar un error al desencriptar el id o caso contrario no se encuentre el registro
         //en la base de datos, entonces devolvemos un ERROR
         try {
-            $faltas_socios_as_acontecimientos = FaltasSociosAsAcontecimientos::where('status', true)->find(MyEncryption::decrypt($request->input('id-reg')));
+            $faltas_socios_as_acontecimientos = FaltasSociosAsAcontecimientos::where('status', true)->find(Crypt::decrypt($request->input('id-reg')));
 
             if ($faltas_socios_as_acontecimientos == null) {
                 $respuesta = [
@@ -305,7 +305,7 @@ class ControllerFaltasSociosAsAcontecimientos extends Controller
                     'faltas_socios_as_acontecimientos.*'
                 )
                 ->where('socios.status', true)
-                ->where('faltas_socios_as_acontecimientos.id', MyEncryption::decrypt($request->input('id-reg')))
+                ->where('faltas_socios_as_acontecimientos.id', Crypt::decrypt($request->input('id-reg')))
                 ->where('faltas_socios_as_acontecimientos.status', true)
                 ->first();
 
@@ -359,7 +359,7 @@ class ControllerFaltasSociosAsAcontecimientos extends Controller
                     'faltas_socios_as_acontecimientos.*'
                 )
                 ->where('socios.status', true)
-                ->where('faltas_socios_as_acontecimientos.id', MyEncryption::decrypt($id))
+                ->where('faltas_socios_as_acontecimientos.id', Crypt::decrypt($id))
                 ->where('faltas_socios_as_acontecimientos.status', true)
                 ->first();
 
@@ -395,7 +395,7 @@ class ControllerFaltasSociosAsAcontecimientos extends Controller
 
         foreach($socios as $row){
             $id =$row->id;         
-            $row->id_socio = MyEncryption::encrypt($id) ;
+            $row->id_socio = Crypt::encrypt($id) ;
             $row->id=null;
         }   
         

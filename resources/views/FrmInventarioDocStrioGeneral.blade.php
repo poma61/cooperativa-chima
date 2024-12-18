@@ -61,7 +61,7 @@
                                 <input type="number" name="numero-de-registro" disabled
                                     value="{{$inventario_doc_strio_general->num_reg}}">
                                 <input type="hidden" name="id-reg"
-                                    value="{{MyEncryption::encrypt($inventario_doc_strio_general->id)}}">
+                                    value="{{Crypt::encrypt($inventario_doc_strio_general->id)}}">
                                 @endif
                             </div>
                             <div class="campo-form-control-2">

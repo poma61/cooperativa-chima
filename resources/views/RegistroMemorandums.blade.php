@@ -101,7 +101,7 @@
                                         <td>{{$row->entregado_a}}</td>
                                         <td>{{$row->cargo}}</td>
                                         <td>
-                                            <a href="{{route('route-ver-registro-memorandums',MyEncryption::encrypt($row->id))}}"
+                                            <a href="{{route('route-ver-registro-memorandums',Crypt::encrypt($row->id))}}"
                                                 class="perfil-reg"><i class="zmdi zmdi-file-text"></i></a>
                                         </td>
 
@@ -118,7 +118,7 @@
                                         <td>{{$row->entregado_a}}</td>
                                         <td>{{$row->cargo}}</td>
                                         <td>
-                                            <a href="{{route('route-ver-registro-memorandums',MyEncryption::encrypt($row->id))}}"
+                                            <a href="{{route('route-ver-registro-memorandums',Crypt::encrypt($row->id))}}"
                                                 class="perfil-reg"><i class="zmdi zmdi-file-text"></i></a>
                                         </td>
 

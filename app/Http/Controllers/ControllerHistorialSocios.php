@@ -7,7 +7,7 @@ use App\Models\HistorialSocios;
 use App\Models\HistoryDB;
 use App\Models\Socios;
 use Exception;
-use Illuminate\Protected\MyEncryption;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Validator;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Auth;
@@ -20,8 +20,8 @@ class ControllerHistorialSocios extends Controller
     public function index($id)
     {
         try {
-            $socios = Socios::find(MyEncryption::decrypt($id));
-            $historial_socios = HistorialSocios::where('status', true)->where('id_socio', MyEncryption::decrypt($id))
+            $socios = Socios::find(Crypt::decrypt($id));
+            $historial_socios = HistorialSocios::where('status', true)->where('id_socio', Crypt::decrypt($id))
                 ->orderBy('fecha', 'DESC')
                 ->get();
 
@@ -48,7 +48,7 @@ class ControllerHistorialSocios extends Controller
         }
 
         try {
-            $id_socio = MyEncryption::decrypt($request->input('id_socio'));
+            $id_socio = Crypt::decrypt($request->input('id_socio'));
 
             $verificar_registro = Socios::select('id')->where('id', $id_socio)->where('status', true)->first();
             if ($verificar_registro == null) {
@@ -99,7 +99,7 @@ class ControllerHistorialSocios extends Controller
     public function show($id)
     {
         try {
-            $historial_socios = HistorialSocios::where('status', true)->find(MyEncryption::decrypt($id));
+            $historial_socios = HistorialSocios::where('status', true)->find(Crypt::decrypt($id));
             $socios = Socios::find($historial_socios->id_socio);
 
 
@@ -126,7 +126,7 @@ class ControllerHistorialSocios extends Controller
         }
 
         try {
-            $historial_socios = HistorialSocios::where('status', true)->find(MyEncryption::decrypt($request->input('id-reg')));
+            $historial_socios = HistorialSocios::where('status', true)->find(Crypt::decrypt($request->input('id-reg')));
 
             if ($historial_socios == null) {
                 $validar['errors_db'] = true;
@@ -174,7 +174,7 @@ class ControllerHistorialSocios extends Controller
     public function destroy(Request $request)
     {
         try {
-            $historial_socios = HistorialSocios::where('status', true)->find(MyEncryption::decrypt($request->input('id')));
+            $historial_socios = HistorialSocios::where('status', true)->find(Crypt::decrypt($request->input('id')));
 
             if ($historial_socios == null) {
                 return response()->json(['errors_db' => true, 'errors_db_messages' => 'historial de socios null']);
@@ -219,7 +219,7 @@ class ControllerHistorialSocios extends Controller
         $historial_socios->fecha = date('Y-m-d');
 
         try {
-            $socios = Socios::where('status', true)->find(MyEncryption::decrypt($id));
+            $socios = Socios::where('status', true)->find(Crypt::decrypt($id));
             if ($socios == null) {
                 return view('PageNotFound', ['tipo_error' => 'NULL']);
             }
@@ -238,8 +238,8 @@ class ControllerHistorialSocios extends Controller
     {
         try {
 
-            $socios = Socios::where('status', true)->find(MyEncryption::decrypt($id));
-            $historial_socios = HistorialSocios::where('id_socio', MyEncryption::decrypt($id))->where('status', true)->orderBy('fecha', 'DESC')->get();
+            $socios = Socios::where('status', true)->find(Crypt::decrypt($id));
+            $historial_socios = HistorialSocios::where('id_socio', Crypt::decrypt($id))->where('status', true)->orderBy('fecha', 'DESC')->get();
             if ($socios == null) {
                 return view('PageNotFound', ['tipo_error' => 'NULL']);
             }
@@ -260,8 +260,8 @@ class ControllerHistorialSocios extends Controller
     {
 
         try {
-            $socios = Socios::where('status', true)->find(MyEncryption::decrypt($id));
-            $historial_socios = HistorialSocios::where('id_socio', MyEncryption::decrypt($id))->where('status', true)->orderBy('fecha', 'DESC')->get();
+            $socios = Socios::where('status', true)->find(Crypt::decrypt($id));
+            $historial_socios = HistorialSocios::where('id_socio', Crypt::decrypt($id))->where('status', true)->orderBy('fecha', 'DESC')->get();
 
             if ($socios == null) {
                 return view('PageNotFound', ['tipo_error' => 'NULL']);
@@ -297,7 +297,7 @@ class ControllerHistorialSocios extends Controller
                     'historial_de_socio.tipo_de_documento',
                     'historial_de_socio.archivo'
                 )
-                ->where('historial_de_socio.id', MyEncryption::decrypt($id))
+                ->where('historial_de_socio.id', Crypt::decrypt($id))
                 ->where('socios.status', true)
                 ->where('historial_de_socio.status', true)
                 ->first();
@@ -339,7 +339,7 @@ class ControllerHistorialSocios extends Controller
                     'historial_de_socio.tipo_de_documento',
                     'historial_de_socio.archivo'
                 )
-                ->where('historial_de_socio.id', MyEncryption::decrypt($id))
+                ->where('historial_de_socio.id', Crypt::decrypt($id))
                 ->where('socios.status', true)
                 ->where('historial_de_socio.status', true)
                 ->first();
@@ -379,7 +379,7 @@ class ControllerHistorialSocios extends Controller
                     'historial_de_socio.tipo_de_documento',
                     'historial_de_socio.archivo'
                 )
-                ->where('historial_de_socio.id', MyEncryption::decrypt($id))
+                ->where('historial_de_socio.id', Crypt::decrypt($id))
                 ->where('socios.status', true)
                 ->where('historial_de_socio.status', true)
                 ->first();

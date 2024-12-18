@@ -50,7 +50,7 @@
                             @if($equipo_pesado->id!=0)
                             <li class="item-menu-opciones">
                                 <a class="color-100"
-                                    href="{{route('route-ver-equipo-pesado',MyEncryption::encrypt($equipo_pesado->id))}}">
+                                    href="{{route('route-ver-equipo-pesado',Crypt::encrypt($equipo_pesado->id))}}">
                                     <i class="zmdi zmdi-file-text"></i><span> Registro</span></a>
                             </li>
                             @endif
@@ -64,7 +64,7 @@
 
                         <form class="mi-form-control" id="mi-form" enctype="multipart/form-data">
                             @if($equipo_pesado->id!=0)
-                            <input type="hidden" name="id-reg" value="{{MyEncryption::encrypt($equipo_pesado->id)}}">
+                            <input type="hidden" name="id-reg" value="{{Crypt::encrypt($equipo_pesado->id)}}">
                             @endif
                             <p class="form-aviso-campos"><i class="zmdi zmdi-label"></i> DATOS GENERALES</p>
 

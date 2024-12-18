@@ -52,30 +52,30 @@
                 <section class="container-menu-opciones-pagina">
                     <ul class="list-menu-opciones">
                         <li class="item-menu-opciones">
-                            <a href="{{route('route-perfil-personal-mita',MyEncryption::encrypt($personal_em->id))}}">Perfil
+                            <a href="{{route('route-perfil-personal-mita',Crypt::encrypt($personal_em->id))}}">Perfil
                                 <i class="zmdi zmdi-account-box"></i></a>
                         </li>
 
                         <li class="item-menu-opciones">
                             <a
-                                href="{{route('route-historial-personal-mita',MyEncryption::encrypt($personal_em->id))}}">Historial
+                                href="{{route('route-historial-personal-mita',Crypt::encrypt($personal_em->id))}}">Historial
                                 <i class="zmdi zmdi-file-text"></i></a>
                         </li>
 
                         <li class="item-menu-opciones">
                             <a
-                                href="{{route('route-frm-new-historial-personal-mita',MyEncryption::encrypt($personal_em->id))}}">Agregar
+                                href="{{route('route-frm-new-historial-personal-mita',Crypt::encrypt($personal_em->id))}}">Agregar
                                 Historial
                                 <i class="zmdi zmdi-plus-circle-o"></i></a>
                         </li>
                         <li class="item-menu-opciones">
                             <a
-                                href="{{route('route-pdf-historial-personal-mita',MyEncryption::encrypt($personal_em->id))}}">PDF
+                                href="{{route('route-pdf-historial-personal-mita',Crypt::encrypt($personal_em->id))}}">PDF
                                 <i class="zmdi zmdi-download"></i></a>
                         </li>
                         <li class="item-menu-opciones">
                             <a
-                                href="{{route('route-imprimir-historial-personal-mita',MyEncryption::encrypt($personal_em->id))}}">Imprimir
+                                href="{{route('route-imprimir-historial-personal-mita',Crypt::encrypt($personal_em->id))}}">Imprimir
                                 <i class="zmdi zmdi-print"></i></a>
                         </li>
                     </ul>

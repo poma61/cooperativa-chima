@@ -8,7 +8,7 @@ use App\Models\EquipoPesado;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Protected\MyEncryption;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
@@ -29,7 +29,7 @@ class ControllerMantenimientoEquipoPesado extends Controller
                 'ano_de_fabricacion',
                 'ano_de_alta_planta',
                 'numero_de_serie'
-            )->where('status', true)->find(MyEncryption::decrypt($id));
+            )->where('status', true)->find(Crypt::decrypt($id));
 
             if ($equipo_pesado == null) {
                 return view('PageNotFound', ['tipo_error' => 'NULL']);
@@ -60,7 +60,7 @@ class ControllerMantenimientoEquipoPesado extends Controller
 
         try {
 
-            $id_equipo_pesado = MyEncryption::decrypt($request->input('id-equipo-pesado'));
+            $id_equipo_pesado = Crypt::decrypt($request->input('id-equipo-pesado'));
             $verificar_registro = EquipoPesado::select('id')->where('id', $id_equipo_pesado)->where('status', true)->first();
             if ($verificar_registro == null) {
                 $validacion['errors_db'] = true;
@@ -104,7 +104,7 @@ class ControllerMantenimientoEquipoPesado extends Controller
     public function show($id)
     {
         try {
-            $mantenimiento_equipo_pesado = MantenimientoEquipoPesado::where('status', true)->find(MyEncryption::decrypt($id));
+            $mantenimiento_equipo_pesado = MantenimientoEquipoPesado::where('status', true)->find(Crypt::decrypt($id));
             $equipo_pesado = EquipoPesado::select(
                 'id',
                 'nombre_comun_del_equipo',
@@ -141,7 +141,7 @@ class ControllerMantenimientoEquipoPesado extends Controller
         }
 
         try {
-            $mantenimiento_equipo_pesado = MantenimientoEquipoPesado::where('status', true)->find(MyEncryption::decrypt($request->input('id-reg')));
+            $mantenimiento_equipo_pesado = MantenimientoEquipoPesado::where('status', true)->find(Crypt::decrypt($request->input('id-reg')));
 
             if ($mantenimiento_equipo_pesado == null) {
                 $validar['errors_db'] = true;
@@ -185,7 +185,7 @@ class ControllerMantenimientoEquipoPesado extends Controller
     public function destroy(Request $request)
     {
         try {
-            $mantenimiento_equipo_pesado = MantenimientoEquipoPesado::where('status', true)->find(MyEncryption::decrypt($request->input('id-reg')));
+            $mantenimiento_equipo_pesado = MantenimientoEquipoPesado::where('status', true)->find(Crypt::decrypt($request->input('id-reg')));
 
             if ($mantenimiento_equipo_pesado == null) {
                 $respuesta = [
@@ -233,7 +233,7 @@ class ControllerMantenimientoEquipoPesado extends Controller
         $mantenimiento_equipo_pesado->fecha_de_salida = date('Y-m-d');
 
         try {
-            $equipo_pesado = EquipoPesado::where('status', true)->find(MyEncryption::decrypt($id));
+            $equipo_pesado = EquipoPesado::where('status', true)->find(Crypt::decrypt($id));
 
             if ($equipo_pesado == null) {
                 return view('PageNotFound', ['tipo_error' => 'NULL']);
@@ -260,7 +260,7 @@ class ControllerMantenimientoEquipoPesado extends Controller
                     'equipo_pesado.numero_de_serie',
                     'mantenimiento_equipo_pesado.*'
                 )
-                ->where('mantenimiento_equipo_pesado.id', MyEncryption::decrypt($id))
+                ->where('mantenimiento_equipo_pesado.id', Crypt::decrypt($id))
                 ->where('equipo_pesado.status', true)
                 ->where('mantenimiento_equipo_pesado.status', true)
                 ->first();
@@ -291,14 +291,14 @@ class ControllerMantenimientoEquipoPesado extends Controller
                 'ano_de_fabricacion',
                 'ano_de_alta_planta',
                 'numero_de_serie'
-            )->where('status', true)->find(MyEncryption::decrypt($id));
+            )->where('status', true)->find(Crypt::decrypt($id));
 
             if ($equipo_pesado == null) {
                 return view('PageNotFound', ['tipo_error' => 'NULL']);
             }
 
 
-            $mantenimiento_equipo_pesado = MantenimientoEquipoPesado::where('id_equipo_pesado', MyEncryption::decrypt($id))->where('status', true)->orderBy('id', 'DESC')->get();
+            $mantenimiento_equipo_pesado = MantenimientoEquipoPesado::where('id_equipo_pesado', Crypt::decrypt($id))->where('status', true)->orderBy('id', 'DESC')->get();
         } catch (Exception $ex) {
             return view('PageNotFound', ['tipo_error' => 'DECRYPT']);
         }
@@ -325,13 +325,13 @@ class ControllerMantenimientoEquipoPesado extends Controller
                 'ano_de_fabricacion',
                 'ano_de_alta_planta',
                 'numero_de_serie'
-            )->where('status', true)->find(MyEncryption::decrypt($id));
+            )->where('status', true)->find(Crypt::decrypt($id));
 
             if ($equipo_pesado == null) {
                 return view('PageNotFound', ['tipo_error' => 'NULL']);
             }
 
-            $mantenimiento_equipo_pesado = MantenimientoEquipoPesado::where('id_equipo_pesado', MyEncryption::decrypt($id))->where('status', true)->orderBy('id', 'DESC')->get();
+            $mantenimiento_equipo_pesado = MantenimientoEquipoPesado::where('id_equipo_pesado', Crypt::decrypt($id))->where('status', true)->orderBy('id', 'DESC')->get();
         } catch (Exception $ex) {
             return view('PageNotFound', ['tipo_error' => 'DECRYPT']);
         }

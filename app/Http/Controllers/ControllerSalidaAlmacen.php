@@ -8,7 +8,7 @@ use App\Models\SalidaAlmacen;
 use App\Models\HistoryDB;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Exception;
-use Illuminate\Protected\MyEncryption;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
@@ -78,7 +78,7 @@ class ControllerSalidaAlmacen extends Controller
     public function show($id)
     {
         try {
-            $salida_almacen = SalidaAlmacen::where('status', true)->find(MyEncryption::decrypt($id));
+            $salida_almacen = SalidaAlmacen::where('status', true)->find(Crypt::decrypt($id));
             if ($salida_almacen == null) {
                 return view('PageNotFound', ['tipo_error' => 'NULL']);
             }
@@ -107,7 +107,7 @@ class ControllerSalidaAlmacen extends Controller
         }
 
         try {
-            $salida_almacen = SalidaAlmacen::where('status', true)->find(MyEncryption::decrypt($request->input('id-reg')));
+            $salida_almacen = SalidaAlmacen::where('status', true)->find(Crypt::decrypt($request->input('id-reg')));
 
             if ($salida_almacen == null) {
                 $validar['errors_db'] = true;
@@ -157,7 +157,7 @@ class ControllerSalidaAlmacen extends Controller
         //esto podria causar un error al desencriptar el id o caso contrario no se encuentre el registro
         //en la base de datos, entonces devolvemos un ERROR
         try {
-            $salida_almacen = SalidaAlmacen::where('status', true)->find(MyEncryption::decrypt($request->input('id-reg')));
+            $salida_almacen = SalidaAlmacen::where('status', true)->find(Crypt::decrypt($request->input('id-reg')));
 
             if ($salida_almacen == null) {
                 $respuesta = [

@@ -9,7 +9,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Exception;
 use Illuminate\Http\Request;
 
-use Illuminate\Protected\MyEncryption;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
@@ -21,7 +21,7 @@ class ControllerHistorialPersonalEP extends Controller
     public function index($id)
     {
         try {
-            $personal_ep = PersonalEP::where('status', true)->find(MyEncryption::decrypt($id));
+            $personal_ep = PersonalEP::where('status', true)->find(Crypt::decrypt($id));
             if ($personal_ep == null) {
                 return view('PageNotFound', ['tipo_error' => 'NULL']);
             }
@@ -55,7 +55,7 @@ class ControllerHistorialPersonalEP extends Controller
 
         try {
 
-            $id_personal_ep = MyEncryption::decrypt($request->input('id-personal-ep'));
+            $id_personal_ep = Crypt::decrypt($request->input('id-personal-ep'));
             $verificar_registro = PersonalEP::select('id')->where('id', $id_personal_ep)->where('status', true)->first();
             if ($verificar_registro == null) {
                 $validacion['errors_db'] = true;
@@ -105,7 +105,7 @@ class ControllerHistorialPersonalEP extends Controller
     public function show($id)
     {
         try {
-            $historial_personal_ep = HistorialPersonalEP::where('status', true)->find(MyEncryption::decrypt($id));
+            $historial_personal_ep = HistorialPersonalEP::where('status', true)->find(Crypt::decrypt($id));
             $personal_ep = PersonalEP::where('status', true)->find($historial_personal_ep->id_personal_ep);
 
             if ($personal_ep == null || $historial_personal_ep == null) {
@@ -131,7 +131,7 @@ class ControllerHistorialPersonalEP extends Controller
         }
 
         try {
-            $historial_personal_ep = HistorialPersonalEP::where('status', true)->find(MyEncryption::decrypt($request->input('id-reg')));
+            $historial_personal_ep = HistorialPersonalEP::where('status', true)->find(Crypt::decrypt($request->input('id-reg')));
 
             if ($historial_personal_ep == null) {
                 $validar['errors_db'] = true;
@@ -177,7 +177,7 @@ class ControllerHistorialPersonalEP extends Controller
     public function destroy(Request $request)
     {
         try {
-            $historial_personal_ep = HistorialPersonalEP::where('status', true)->find(MyEncryption::decrypt($request->input('id')));
+            $historial_personal_ep = HistorialPersonalEP::where('status', true)->find(Crypt::decrypt($request->input('id')));
 
             if ($historial_personal_ep == null) {
                 $respuesta = [
@@ -224,7 +224,7 @@ class ControllerHistorialPersonalEP extends Controller
         $historial_personal_ep->fecha = date('Y-m-d');
 
         try {
-            $personal_ep = PersonalEP::where('status', true)->find(MyEncryption::decrypt($id));
+            $personal_ep = PersonalEP::where('status', true)->find(Crypt::decrypt($id));
             if ($personal_ep == null) {
                 return view('PageNotFound', ['tipo_error' => 'NULL']);
             }
@@ -251,7 +251,7 @@ class ControllerHistorialPersonalEP extends Controller
                     'historial_personal_ep.id as id_historial_personal_ep',
                     'historial_personal_ep.*'
                 )
-                ->where('historial_personal_ep.id', MyEncryption::decrypt($id))
+                ->where('historial_personal_ep.id', Crypt::decrypt($id))
                 ->where('personal_ep.status', true)
                 ->where('historial_personal_ep.status', true)
                 ->first();
@@ -273,8 +273,8 @@ class ControllerHistorialPersonalEP extends Controller
     {
         try {
 
-            $personal_ep = PersonalEP::where('status', true)->find(MyEncryption::decrypt($id));
-            $historial_personal_ep = HistorialPersonalEP::where('id_personal_ep', MyEncryption::decrypt($id))->where('status', true)->orderBy('fecha', 'DESC')->get();
+            $personal_ep = PersonalEP::where('status', true)->find(Crypt::decrypt($id));
+            $historial_personal_ep = HistorialPersonalEP::where('id_personal_ep', Crypt::decrypt($id))->where('status', true)->orderBy('fecha', 'DESC')->get();
             if ($personal_ep == null) {
                 return view('PageNotFound', ['tipo_error' => 'NULL']);
             }
@@ -294,8 +294,8 @@ class ControllerHistorialPersonalEP extends Controller
     public function imprimirRegistros($id)
     {
         try {
-            $personal_ep = PersonalEP::where('status', true)->find(MyEncryption::decrypt($id));
-            $historial_personal_ep = HistorialPersonalEP::where('id_personal_ep', MyEncryption::decrypt($id))->where('status', true)->orderBy('fecha', 'DESC')->get();
+            $personal_ep = PersonalEP::where('status', true)->find(Crypt::decrypt($id));
+            $historial_personal_ep = HistorialPersonalEP::where('id_personal_ep', Crypt::decrypt($id))->where('status', true)->orderBy('fecha', 'DESC')->get();
             if ($personal_ep == null) {
                 return view('PageNotFound', ['tipo_error' => 'NULL']);
             }
@@ -328,7 +328,7 @@ class ControllerHistorialPersonalEP extends Controller
                     'historial_personal_ep.id as id_historial_personal_ep',
                     'historial_personal_ep.*'
                 )
-                ->where('historial_personal_ep.id', MyEncryption::decrypt($id))
+                ->where('historial_personal_ep.id', Crypt::decrypt($id))
                 ->where('personal_ep.status', true)
                 ->where('historial_personal_ep.status', true)
                 ->first();
@@ -367,7 +367,7 @@ class ControllerHistorialPersonalEP extends Controller
                     'historial_personal_ep.id as id_historial_personal_ep',
                     'historial_personal_ep.*'
                 )
-                ->where('historial_personal_ep.id', MyEncryption::decrypt($id))
+                ->where('historial_personal_ep.id', Crypt::decrypt($id))
                 ->where('personal_ep.status', true)
                 ->where('historial_personal_ep.status', true)
                 ->first();

@@ -51,34 +51,34 @@
 
                         <li class="item-menu-opciones">
                             <a
-                                href="{{route('route-historial-socios',MyEncryption::encrypt($historial_socios_socios->id_socio))}}">Historial
+                                href="{{route('route-historial-socios',Crypt::encrypt($historial_socios_socios->id_socio))}}">Historial
                                 <i class="zmdi zmdi-file-text"></i></a>
                         </li>
                         <li class="item-menu-opciones">
                             <a
-                                href="{{route('route-ver-historial-socios',MyEncryption::encrypt($historial_socios_socios->id_historial_socio))}}">Ver
+                                href="{{route('route-ver-historial-socios',Crypt::encrypt($historial_socios_socios->id_historial_socio))}}">Ver
                                 Historial
                                 <i class="zmdi zmdi-file-text"></i></a>
                         </li>
                         <li class="item-menu-opciones">
                             <a
-                                href="{{route('route-pdf-ver-historial-socios',MyEncryption::encrypt($historial_socios_socios->id_historial_socio))}}">PDF
+                                href="{{route('route-pdf-ver-historial-socios',Crypt::encrypt($historial_socios_socios->id_historial_socio))}}">PDF
                                 <i class="zmdi zmdi-download"></i></a>
                         </li>
                         <li class="item-menu-opciones">
                             <a
-                                href="{{route('route-frm-show-historial-socios',MyEncryption::encrypt($historial_socios_socios->id_historial_socio))}}">Actualizar
+                                href="{{route('route-frm-show-historial-socios',Crypt::encrypt($historial_socios_socios->id_historial_socio))}}">Actualizar
                                 <i class="zmdi zmdi-border-color"></i></a>
                         </li>
                         <li class="item-menu-opciones">
                             <a id="btn-accion" style="cursor:pointer" data-accion="confirm-destroy"
-                                data-id="{{MyEncryption::encrypt($historial_socios_socios->id_historial_socio)}}"
-                                data-id_socio="{{MyEncryption::encrypt($historial_socios_socios->id_socio)}}">
+                                data-id="{{Crypt::encrypt($historial_socios_socios->id_historial_socio)}}"
+                                data-id_socio="{{Crypt::encrypt($historial_socios_socios->id_socio)}}">
                                 Eliminar <i class="zmdi zmdi-delete"></i></a>
                         </li>
                         <li class="item-menu-opciones">
                             <a
-                                href="{{route('route-imprimir-ver-historial-socios',MyEncryption::encrypt($historial_socios_socios->id_historial_socio))}}">Imprimir
+                                href="{{route('route-imprimir-ver-historial-socios',Crypt::encrypt($historial_socios_socios->id_historial_socio))}}">Imprimir
                                 <i class="zmdi zmdi-print"></i></i></a>
                         </li>
                     </ul>

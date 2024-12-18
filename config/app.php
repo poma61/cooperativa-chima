@@ -182,7 +182,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-      
+
         /*
          * Application Service Providers...
          */
@@ -209,10 +209,9 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // 'ExampleClass' => App\Example\ExampleClass::class,
         //para usar esta clase en las plantillas blade sin necesidad de importar la clase
-        'MyEncryption' =>   Illuminate\Protected\MyEncryption::class,
+        // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 
-   
+
 ];

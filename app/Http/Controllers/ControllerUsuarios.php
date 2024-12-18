@@ -7,7 +7,7 @@ use App\Models\HistoryDB;
 use App\Models\Role;
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Protected\MyEncryption;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -111,7 +111,7 @@ class ControllerUsuarios extends Controller
                 ->join('roles', 'roles.id_user', '=', 'users.id')
                 ->where('users.status', true)
                 ->where('roles.rol', '<>', 'system')
-                ->find(MyEncryption::decrypt($id));
+                ->find(Crypt::decrypt($id));
 
 
             if ($user == null) {
@@ -150,7 +150,7 @@ class ControllerUsuarios extends Controller
         }
 
         try {
-            $user = User::where('users.status', true)->find(MyEncryption::decrypt($request->input('id-reg')));
+            $user = User::where('users.status', true)->find(Crypt::decrypt($request->input('id-reg')));
 
             if ($user == null) {
                 $validar['errors_db'] = true;

@@ -51,28 +51,28 @@
 
                             <li class="item-menu-opciones">
                                 <a class="color-100"
-                                    href="{{route('route-frm-show-registro-correspondencias-re',MyEncryption::encrypt($registro_correspondencias_re->id))}}">
+                                    href="{{route('route-frm-show-registro-correspondencias-re',Crypt::encrypt($registro_correspondencias_re->id))}}">
                                     <i class="zmdi zmdi-border-color"></i><span> Actualizar</span> </a>
                             </li>
                             <li class="item-menu-opciones">
                                 <a class="color-100" style="cursor:pointer;" id="btn-accion"
                                     data-action="confirm-destroy"
-                                    data-id_reg="{{MyEncryption::encrypt($registro_correspondencias_re->id)}}">
+                                    data-id_reg="{{Crypt::encrypt($registro_correspondencias_re->id)}}">
                                     <i class="zmdi zmdi-delete"></i><span> Eliminar</span></a>
                             </li>
                             <li class="item-menu-opciones">
                                 <a class="color-100"
-                                    href="{{route('route-ver-registro-correspondencias-re',MyEncryption::encrypt($registro_correspondencias_re->id))}}">
+                                    href="{{route('route-ver-registro-correspondencias-re',Crypt::encrypt($registro_correspondencias_re->id))}}">
                                     <i class="zmdi zmdi-file-text"></i><span> Ver Registro</span></a>
                             </li>
                             <li class="item-menu-opciones">
                                 <a class="color-100"
-                                    href="{{route('route-pdf-ver-registro-correspondencias-re',MyEncryption::encrypt($registro_correspondencias_re->id))}}">
+                                    href="{{route('route-pdf-ver-registro-correspondencias-re',Crypt::encrypt($registro_correspondencias_re->id))}}">
                                     <i class="zmdi zmdi-download"></i><span> PDF</span> </a>
                             </li>
                             <li class="item-menu-opciones">
                                 <a class="color-100"
-                                    href="{{route('route-imprimir-ver-registro-correspondencias-re',MyEncryption::encrypt($registro_correspondencias_re->id))}}">
+                                    href="{{route('route-imprimir-ver-registro-correspondencias-re',Crypt::encrypt($registro_correspondencias_re->id))}}">
                                     <i class="zmdi zmdi-print"></i><span> Imprimir</span></a>
                             </li>
 

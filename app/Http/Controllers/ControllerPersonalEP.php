@@ -7,7 +7,7 @@ use App\Models\PersonalEP;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Protected\MyEncryption;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
@@ -57,7 +57,7 @@ class ControllerPersonalEP extends Controller
             $personal_ep->status = true;
             $blob = $request->file('imagen');
             $personal_ep->imagen = $blob->openFile()->fread($blob->getSize());
-            $personal_ep->id_usuario = MyEncryption::decrypt($request->input('id_usuario'));
+            $personal_ep->id_usuario = Crypt::decrypt($request->input('id_usuario'));
 
             $personal_ep->num_empleado = $num_empleado;
             $personal_ep->save();
@@ -77,7 +77,7 @@ class ControllerPersonalEP extends Controller
     public function show($id)
     {
         try {
-            $personal_ep = PersonalEP::where('status', true)->find(MyEncryption::decrypt($id));
+            $personal_ep = PersonalEP::where('status', true)->find(Crypt::decrypt($id));
             if ($personal_ep == null) {
                 return view('PageNotFound', ['tipo_error' => 'NULL']);
             }
@@ -101,7 +101,7 @@ class ControllerPersonalEP extends Controller
         }
 
         try {
-            $personal_ep = PersonalEP::where('status', true)->find(MyEncryption::decrypt($request->input('id-reg')));
+            $personal_ep = PersonalEP::where('status', true)->find(Crypt::decrypt($request->input('id-reg')));
 
             if ($personal_ep == null) {
                 $validar['errors_db'] = true;
@@ -126,7 +126,7 @@ class ControllerPersonalEP extends Controller
             if ($blob != null) {
                 $personal_ep->imagen = $blob->openFile()->fread($blob->getSize());
             }
-            $personal_ep->id_usuario = MyEncryption::decrypt($request->input('id_usuario'));
+            $personal_ep->id_usuario = Crypt::decrypt($request->input('id_usuario'));
             $personal_ep->update();
         } catch (Exception $ex) {
 
@@ -149,7 +149,7 @@ class ControllerPersonalEP extends Controller
         //esto podria causar un error al desencriptar el id o caso contrario no se encuentre el registro
         //en la base de datos, entonces devolvemos un ERROR
         try {
-            $personal_ep = PersonalEP::where('status', true)->find(MyEncryption::decrypt($request->input('id-reg')));
+            $personal_ep = PersonalEP::where('status', true)->find(Crypt::decrypt($request->input('id-reg')));
 
             if ($personal_ep == null) {
                 $respuesta = [
@@ -211,7 +211,7 @@ class ControllerPersonalEP extends Controller
     {
 
         try {
-            $personal_ep = PersonalEP::where('status', true)->find(MyEncryption::decrypt($id));
+            $personal_ep = PersonalEP::where('status', true)->find(Crypt::decrypt($id));
 
             if ($personal_ep == null) {
                 return view('PageNotFound', ['tipo_error' => 'NULL']);
@@ -228,7 +228,7 @@ class ControllerPersonalEP extends Controller
     public function imprimir($id)
     {
         try {
-            $personal_ep = PersonalEP::where('status', true)->find(MyEncryption::decrypt($id));
+            $personal_ep = PersonalEP::where('status', true)->find(Crypt::decrypt($id));
             if ($personal_ep == null) {
                 return view('PageNotFound', ['tipo_error' => 'NULL']);
             }
@@ -253,7 +253,7 @@ class ControllerPersonalEP extends Controller
     public function pdf($id)
     {
         try {
-            $personal_ep = PersonalEP::where('status', true)->find(MyEncryption::decrypt($id));
+            $personal_ep = PersonalEP::where('status', true)->find(Crypt::decrypt($id));
             if ($personal_ep == null) {
                 return view('PageNotFound', ['tipo_error' => 'NULL']);
             }

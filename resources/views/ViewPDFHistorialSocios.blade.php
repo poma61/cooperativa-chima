@@ -50,28 +50,28 @@
                 <section class="container-menu-opciones-pagina">
                     <ul class="list-menu-opciones">
                         <li class="item-menu-opciones">
-                            <a href="{{route('route-perfil-socios',MyEncryption::encrypt($socios->id))}}">Perfil <i
+                            <a href="{{route('route-perfil-socios',Crypt::encrypt($socios->id))}}">Perfil <i
                                     class="zmdi zmdi-account-box"></i></a>
                         </li>
 
                       
                         <li class="item-menu-opciones">
-                            <a href="{{route('route-historial-socios',MyEncryption::encrypt($socios->id))}}">Historial
+                            <a href="{{route('route-historial-socios',Crypt::encrypt($socios->id))}}">Historial
                                 <i class="zmdi zmdi-file-text"></i></a>
                         </li>
                         
                         <li class="item-menu-opciones">
-                            <a href="{{route('route-frm-new-historial-socios',MyEncryption::encrypt($socios->id))}}">Agregar
+                            <a href="{{route('route-frm-new-historial-socios',Crypt::encrypt($socios->id))}}">Agregar
                                 Historial <i class="zmdi zmdi-plus-circle-o"></i></a>
                         </li>
 
 
                         <li class="item-menu-opciones">
-                            <a href="{{route('route-pdf-historial-socios',MyEncryption::encrypt($socios->id))}}">PDF <i
+                            <a href="{{route('route-pdf-historial-socios',Crypt::encrypt($socios->id))}}">PDF <i
                                     class="zmdi zmdi-download"></i></a>
                         </li>
                         <li class="item-menu-opciones">
-                            <a href="{{route('route-imprimir-historial-socios',MyEncryption::encrypt($socios->id))}}">Imprimir
+                            <a href="{{route('route-imprimir-historial-socios',Crypt::encrypt($socios->id))}}">Imprimir
                                 <i class="zmdi zmdi-print"></i></a>
                         </li>
                     </ul>

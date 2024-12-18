@@ -48,7 +48,7 @@
                     <form class="mi-form-control" id="mi-form" enctype="multipart/form-data">
                         @if($faltas_socios_as_acontecimientos->id!=0)
                         <input type="hidden" name="id-reg"
-                            value="{{MyEncryption::encrypt($faltas_socios_as_acontecimientos->id)}}">
+                            value="{{Crypt::encrypt($faltas_socios_as_acontecimientos->id)}}">
                         @endif
 
                         <p class="form-aviso-campos"><i class="zmdi zmdi-label"></i> INFORMACIÓN</p>

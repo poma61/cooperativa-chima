@@ -7,7 +7,7 @@ use App\Models\RegistroAcTribunalDeHonor;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Protected\MyEncryption;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
@@ -75,7 +75,7 @@ class ControllerRegistroAcTribunalDeHonor extends Controller
     public function show($id)
     {
         try {
-            $registro_ac_tribunal_de_honor = RegistroAcTribunalDeHonor::where('status', true)->find(MyEncryption::decrypt($id));
+            $registro_ac_tribunal_de_honor = RegistroAcTribunalDeHonor::where('status', true)->find(Crypt::decrypt($id));
             if ($registro_ac_tribunal_de_honor == null) {
                 return view('PageNotFound', ['tipo_error' => 'NULL']);
             }
@@ -104,7 +104,7 @@ class ControllerRegistroAcTribunalDeHonor extends Controller
         }
 
         try {
-            $registro_ac_tribunal_de_honor = RegistroAcTribunalDeHonor::where('status', true)->find(MyEncryption::decrypt($request->input('id-reg')));
+            $registro_ac_tribunal_de_honor = RegistroAcTribunalDeHonor::where('status', true)->find(Crypt::decrypt($request->input('id-reg')));
 
             if ($registro_ac_tribunal_de_honor == null) {
                 $validar['errors_db'] = true;
@@ -153,7 +153,7 @@ class ControllerRegistroAcTribunalDeHonor extends Controller
         //esto podria causar un error al desencriptar el id o caso contrario no se encuentre el registro
         //en la base de datos, entonces devolvemos un ERROR
         try {
-            $registro_ac_tribunal_de_honor = RegistroAcTribunalDeHonor::where('status', true)->find(MyEncryption::decrypt($request->input('id-reg')));
+            $registro_ac_tribunal_de_honor = RegistroAcTribunalDeHonor::where('status', true)->find(Crypt::decrypt($request->input('id-reg')));
 
             if ($registro_ac_tribunal_de_honor == null) {
                 $respuesta = [
@@ -261,7 +261,7 @@ class ControllerRegistroAcTribunalDeHonor extends Controller
     {
         try {
             $registro_ac_tribunal_de_honor = RegistroAcTribunalDeHonor::where('status', true)
-                ->find(MyEncryption::decrypt($request->input('id-reg')));
+                ->find(Crypt::decrypt($request->input('id-reg')));
 
             if ($registro_ac_tribunal_de_honor == null) {
                 $respuesta = [
@@ -304,7 +304,7 @@ class ControllerRegistroAcTribunalDeHonor extends Controller
     public function pdfRegistrosId($id)
     {
         try {
-            $registro_ac_tribunal_de_honor = RegistroAcTribunalDeHonor::where('status', true)->find(MyEncryption::decrypt($id));
+            $registro_ac_tribunal_de_honor = RegistroAcTribunalDeHonor::where('status', true)->find(Crypt::decrypt($id));
             if ($registro_ac_tribunal_de_honor == null) {
                 return view('PageNotFound', ['tipo_error' => 'NULL']);
             }
@@ -331,7 +331,7 @@ class ControllerRegistroAcTribunalDeHonor extends Controller
     {
         try {
             $registro_ac_tribunal_de_honor = RegistroAcTribunalDeHonor::where('status', true)
-                ->find(MyEncryption::decrypt($request->input('id-reg')));
+                ->find(Crypt::decrypt($request->input('id-reg')));
 
             if ($registro_ac_tribunal_de_honor == null) {
                 $respuesta = [

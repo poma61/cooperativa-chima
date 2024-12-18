@@ -50,29 +50,29 @@
                     <ul class="list-menu-opciones">
 
                         <li class="item-menu-opciones">
-                            <a href="{{route('route-historial-socios',MyEncryption::encrypt($socios->id))}}">Historial
+                            <a href="{{route('route-historial-socios',Crypt::encrypt($socios->id))}}">Historial
                                 <i class="zmdi zmdi-file-text"></i></a>
                         </li>
                         <li class="item-menu-opciones">
-                            <a href="{{route('route-frm-show-socios',MyEncryption::encrypt($socios->id))}}">Actualizar
+                            <a href="{{route('route-frm-show-socios',Crypt::encrypt($socios->id))}}">Actualizar
                                 <i class="zmdi zmdi-border-color"></i></a>
                         </li>
                         <li class="item-menu-opciones">
 
                             <a style="cursor:pointer;" id="btn-accion" data-accion="confirm-destroy"
-                                data-id="{{MyEncryption::encrypt($socios->id)}}">
+                                data-id="{{Crypt::encrypt($socios->id)}}">
                                 Eliminar <i class="zmdi zmdi-delete"></i></a>
                         </li>
                         <li class="item-menu-opciones">
-                            <a href="{{route('route-perfil-socios',MyEncryption::encrypt($socios->id))}}">Perfil <i
+                            <a href="{{route('route-perfil-socios',Crypt::encrypt($socios->id))}}">Perfil <i
                                     class="zmdi zmdi-account-box"></i></a>
                         </li>
                         <li class="item-menu-opciones">
-                            <a href="{{route('route-pdf-perfil-socios',MyEncryption::encrypt($socios->id))}}">PDF
+                            <a href="{{route('route-pdf-perfil-socios',Crypt::encrypt($socios->id))}}">PDF
                                 <i class="zmdi zmdi-download"></i> </a>
                         </li>
                         <li class="item-menu-opciones">
-                            <a href="{{route('route-imprimir-perfil-socios',MyEncryption::encrypt($socios->id))}}">Imprimir
+                            <a href="{{route('route-imprimir-perfil-socios',Crypt::encrypt($socios->id))}}">Imprimir
                                 <i class="zmdi zmdi-print"></i></a>
                         </li>
                     </ul>

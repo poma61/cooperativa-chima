@@ -61,7 +61,7 @@
                                 <input type="number" name="numero-de-registro" disabled
                                     value="{{$doc_pdte_csjo_admin->num_reg}}">
                                 <input type="hidden" name="id-reg"
-                                    value="{{MyEncryption::encrypt($doc_pdte_csjo_admin->id)}}">
+                                    value="{{Crypt::encrypt($doc_pdte_csjo_admin->id)}}">
                                 @endif
                             </div>
                             <div class="campo-form-control-2">

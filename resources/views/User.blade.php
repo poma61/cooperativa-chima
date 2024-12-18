@@ -84,12 +84,12 @@
 
                                     <td>
                                         <a style="cursor:pointer;"
-                                            data-id_reg="{{MyEncryption::encrypt($row->users_id)}}" class="delete-reg"
+                                            data-id_reg="{{Crypt::encrypt($row->users_id)}}" class="delete-reg"
                                             id="delete"><i class="zmdi zmdi-delete"></i>
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="{{route('route-frm-show-usuarios',MyEncryption::encrypt($row->users_id))}}"
+                                        <a href="{{route('route-frm-show-usuarios',Crypt::encrypt($row->users_id))}}"
                                             class="edit-reg"><i class="zmdi zmdi-refresh"></i>
                                         </a>
                                     </td>
@@ -109,12 +109,12 @@
 
                                     <td>
                                         <a style="cursor:pointer;"
-                                            data-id_reg="{{MyEncryption::encrypt($row->users_id)}}" class="delete-reg"
+                                            data-id_reg="{{Crypt::encrypt($row->users_id)}}" class="delete-reg"
                                             id="delete"><i class="zmdi zmdi-delete"></i>
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="{{route('route-frm-show-usuarios',MyEncryption::encrypt($row->users_id))}}"
+                                        <a href="{{route('route-frm-show-usuarios',Crypt::encrypt($row->users_id))}}"
                                             class="edit-reg"><i class="zmdi zmdi-refresh"></i>
                                         </a>
                                     </td>

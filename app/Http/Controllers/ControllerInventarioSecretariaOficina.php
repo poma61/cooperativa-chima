@@ -7,7 +7,7 @@ use App\Models\InventarioSecretariaOficina;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Protected\MyEncryption;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
@@ -74,7 +74,7 @@ class ControllerInventarioSecretariaOficina extends Controller
     public function show($id)
     {
         try {
-            $inventario_secretaria_of = InventarioSecretariaOficina::where('status', true)->find(MyEncryption::decrypt($id));
+            $inventario_secretaria_of = InventarioSecretariaOficina::where('status', true)->find(Crypt::decrypt($id));
             if ($inventario_secretaria_of == null) {
                 return view('PageNotFound', ['tipo_error' => 'NULL']);
             }
@@ -103,7 +103,7 @@ class ControllerInventarioSecretariaOficina extends Controller
         }
 
         try {
-            $inventario_secretaria_of = InventarioSecretariaOficina::where('status', true)->find(MyEncryption::decrypt($request->input('id-reg')));
+            $inventario_secretaria_of = InventarioSecretariaOficina::where('status', true)->find(Crypt::decrypt($request->input('id-reg')));
 
             if ($inventario_secretaria_of == null) {
                 $validar['errors_db'] = true;
@@ -152,7 +152,7 @@ class ControllerInventarioSecretariaOficina extends Controller
         //esto podria causar un error al desencriptar el id o caso contrario no se encuentre el registro
         //en la base de datos, entonces devolvemos un ERROR
         try {
-            $inventario_secretaria_of = InventarioSecretariaOficina::where('status', true)->find(MyEncryption::decrypt($request->input('id-reg')));
+            $inventario_secretaria_of = InventarioSecretariaOficina::where('status', true)->find(Crypt::decrypt($request->input('id-reg')));
 
             if ($inventario_secretaria_of == null) {
                 $respuesta = [
@@ -260,7 +260,7 @@ class ControllerInventarioSecretariaOficina extends Controller
     {
         try {
             $inventario_secretaria_of = InventarioSecretariaOficina::where('status', true)
-                ->find(MyEncryption::decrypt($request->input('id-reg')));
+                ->find(Crypt::decrypt($request->input('id-reg')));
 
             if ($inventario_secretaria_of == null) {
                 $respuesta = [
@@ -303,7 +303,7 @@ class ControllerInventarioSecretariaOficina extends Controller
     public function pdfRegistrosId($id)
     {
         try {
-            $inventario_secretaria_of = InventarioSecretariaOficina::where('status', true)->find(MyEncryption::decrypt($id));
+            $inventario_secretaria_of = InventarioSecretariaOficina::where('status', true)->find(Crypt::decrypt($id));
             if ($inventario_secretaria_of == null) {
                 return view('PageNotFound', ['tipo_error' => 'NULL']);
             }
@@ -330,7 +330,7 @@ class ControllerInventarioSecretariaOficina extends Controller
     {
         try {
             $inventario_secretaria_of = InventarioSecretariaOficina::where('status', true)
-                ->find(MyEncryption::decrypt($request->input('id-reg')));
+                ->find(Crypt::decrypt($request->input('id-reg')));
 
             if ($inventario_secretaria_of == null) {
                 $respuesta = [

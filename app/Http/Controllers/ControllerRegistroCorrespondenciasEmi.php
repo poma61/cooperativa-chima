@@ -8,7 +8,7 @@ use App\Models\RegistroCorrespondenciasEmi;
 use Barryvdh\DomPDF\Facade\Pdf;
 
 use Exception;
-use Illuminate\Protected\MyEncryption;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
@@ -76,7 +76,7 @@ class ControllerRegistroCorrespondenciasEmi extends Controller
     public function show($id)
     {
         try {
-            $registro_correspondencias_emi = RegistroCorrespondenciasEmi::where('status', true)->find(MyEncryption::decrypt($id));
+            $registro_correspondencias_emi = RegistroCorrespondenciasEmi::where('status', true)->find(Crypt::decrypt($id));
             if ($registro_correspondencias_emi == null) {
                 return view('PageNotFound', ['tipo_error' => 'NULL']);
             }
@@ -105,7 +105,7 @@ class ControllerRegistroCorrespondenciasEmi extends Controller
         }
 
         try {
-            $registro_correspondencias_emi = RegistroCorrespondenciasEmi::where('status', true)->find(MyEncryption::decrypt($request->input('id-reg')));
+            $registro_correspondencias_emi = RegistroCorrespondenciasEmi::where('status', true)->find(Crypt::decrypt($request->input('id-reg')));
 
             if ($registro_correspondencias_emi == null) {
                 $validar['errors_db'] = true;
@@ -154,7 +154,7 @@ class ControllerRegistroCorrespondenciasEmi extends Controller
         //esto podria causar un error al desencriptar el id o caso contrario no se encuentre el registro
         //en la base de datos, entonces devolvemos un ERROR
         try {
-            $registro_correspondencias_emi = RegistroCorrespondenciasEmi::where('status', true)->find(MyEncryption::decrypt($request->input('id-reg')));
+            $registro_correspondencias_emi = RegistroCorrespondenciasEmi::where('status', true)->find(Crypt::decrypt($request->input('id-reg')));
 
             if ($registro_correspondencias_emi == null) {
                 $respuesta = [
@@ -213,7 +213,7 @@ class ControllerRegistroCorrespondenciasEmi extends Controller
 
     public function verRegistro($id){
         try {
-            $registro_correspondencias_emi = RegistroCorrespondenciasEmi::where('status', true)->find(MyEncryption::decrypt($id));
+            $registro_correspondencias_emi = RegistroCorrespondenciasEmi::where('status', true)->find(Crypt::decrypt($id));
             if ($registro_correspondencias_emi == null) {
                 return view('PageNotFound', ['tipo_error' => 'NULL']);
             }
@@ -280,7 +280,7 @@ class ControllerRegistroCorrespondenciasEmi extends Controller
 
 
        try {
-           $registro_correspondencias_emi = RegistroCorrespondenciasEmi::where('status', true)->find(MyEncryption::decrypt($id));
+           $registro_correspondencias_emi = RegistroCorrespondenciasEmi::where('status', true)->find(Crypt::decrypt($id));
            if ($registro_correspondencias_emi == null) {
                return view('PageNotFound', ['tipo_error' => 'NULL']);
            }
@@ -307,7 +307,7 @@ class ControllerRegistroCorrespondenciasEmi extends Controller
      {
   
         try {
-            $registro_correspondencias_emi = RegistroCorrespondenciasEmi::where('status', true)->find(MyEncryption::decrypt($id));
+            $registro_correspondencias_emi = RegistroCorrespondenciasEmi::where('status', true)->find(Crypt::decrypt($id));
             if ($registro_correspondencias_emi == null) {
                 return view('PageNotFound', ['tipo_error' => 'NULL']);
             }

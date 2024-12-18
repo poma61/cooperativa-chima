@@ -6,11 +6,11 @@ use App\Models\HistoryDB;
 use Illuminate\Http\Request;
 use App\Models\Socios;
 use Exception;
-use Illuminate\Protected\MyEncryption; //esta clase  yo lo adicione 
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Validator;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
+
 
 class ControllerSocios extends Controller
 {
@@ -55,7 +55,7 @@ class ControllerSocios extends Controller
             $socios->status = true;
             $blob = $request->file('imagen');
             $socios->imagen = $blob->openFile()->fread($blob->getSize());
-            $socios->id_usuario = MyEncryption::decrypt($request->input('id_usuario'));
+            $socios->id_usuario = Crypt::decrypt($request->input('id_usuario'));
             $socios->num_item = $num_item;
             $socios->save();
         } catch (Exception $ex) {
@@ -75,7 +75,7 @@ class ControllerSocios extends Controller
     public function show($id)
     {
         try {
-            $socios = Socios::where('status', true)->find(MyEncryption::decrypt($id));
+            $socios = Socios::where('status', true)->find(Crypt::decrypt($id));
             if ($socios == null) {
                 return view('PageNotFound', ['tipo_error' => 'NULL']);
             }
@@ -99,7 +99,7 @@ class ControllerSocios extends Controller
         }
 
         try {
-            $socios = Socios::where('status', true)->find(MyEncryption::decrypt($request->input('id-reg')));
+            $socios = Socios::where('status', true)->find(Crypt::decrypt($request->input('id-reg')));
 
             if ($socios == null) {
                 $validar['errors_db'] = true;
@@ -145,7 +145,7 @@ class ControllerSocios extends Controller
             $socios->parentesco = $request->input('parentesco');
             $socios->observacion = $request->input('observacion');
 
-            $socios->id_usuario = MyEncryption::decrypt($request->input('id_usuario'));
+            $socios->id_usuario = Crypt::decrypt($request->input('id_usuario'));
 
             $socios->update();
         } catch (Exception $ex) {
@@ -168,7 +168,7 @@ class ControllerSocios extends Controller
         //esto podria causar un error al desencriptar el id o caso contrario no se encuentre el registro
         //en la base de datos, entonces devolvemos un ERROR
         try {
-            $socios = Socios::where('status', true)->find(MyEncryption::decrypt($request->input('id')));
+            $socios = Socios::where('status', true)->find(Crypt::decrypt($request->input('id')));
             if ($socios == null) {
 
                 return response()->json(['errors_db' => true,'errors_db_messages' => 'socios null']);
@@ -227,7 +227,7 @@ class ControllerSocios extends Controller
             //si el usuario modifica la url del metodo get y coloca otros valores entonces
             //retornanos una pagina de not found
             //error NULL =>no hay registro
-            $socios = Socios::where('status', true)->find(MyEncryption::decrypt($id));
+            $socios = Socios::where('status', true)->find(Crypt::decrypt($id));
 
             if ($socios == null) {
                 return view('PageNotFound', ['tipo_error' => 'NULL']);
@@ -246,7 +246,7 @@ class ControllerSocios extends Controller
     public function imprimir($id)
     {
         try {
-            $socios = Socios::where('status', true)->find(MyEncryption::decrypt($id));
+            $socios = Socios::where('status', true)->find(Crypt::decrypt($id));
             if ($socios == null) {
                 return view('PageNotFound', ['tipo_error' => 'NULL']);
             }
@@ -271,7 +271,7 @@ class ControllerSocios extends Controller
     public function pdf($id)
     {
         try {
-            $socios = Socios::where('status', true)->find(MyEncryption::decrypt($id));
+            $socios = Socios::where('status', true)->find(Crypt::decrypt($id));
             if ($socios == null) {
                 return view('PageNotFound', ['tipo_error' => 'NULL']);
             }

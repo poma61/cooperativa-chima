@@ -101,26 +101,26 @@
 
                                     <td>
                                         <a style="cursor:pointer;" id="file"
-                                            data-id_registro="{{MyEncryption::encrypt($row->id)}}" class="file-reg"><i
+                                            data-id_registro="{{Crypt::encrypt($row->id)}}" class="file-reg"><i
                                                 class="zmdi zmdi-book-image"></i>
                                         </a>
                                     </td>
                                     <td>
-                                        <a style="cursor:pointer;" data-id_reg="{{MyEncryption::encrypt($row->id)}}"
+                                        <a style="cursor:pointer;" data-id_reg="{{Crypt::encrypt($row->id)}}"
                                             class="delete-reg" id="delete"><i class="zmdi zmdi-delete"></i>
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="{{route('route-frm-show-inventario-secretaria-oficina',MyEncryption::encrypt($row->id))}}"
+                                        <a href="{{route('route-frm-show-inventario-secretaria-oficina',Crypt::encrypt($row->id))}}"
                                             class="edit-reg"><i class="zmdi zmdi-edit"></i>
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="{{route('route-pdf-id-inventario-secretaria-oficina',MyEncryption::encrypt($row->id))}}"
+                                        <a href="{{route('route-pdf-id-inventario-secretaria-oficina',Crypt::encrypt($row->id))}}"
                                             class="pdf-reg"><i class="zmdi zmdi-download"></i></a>
                                     </td>
                                     <td>
-                                        <a data-id_reg_print="{{MyEncryption::encrypt($row->id)}}" class="print-reg"
+                                        <a data-id_reg_print="{{Crypt::encrypt($row->id)}}" class="print-reg"
                                             style="cursor:pointer;" id="print"><i class="zmdi zmdi-print"></i>
                                         </a>
                                     </td>
@@ -138,26 +138,26 @@
 
                                     <td>
                                         <a style="cursor:pointer;" id="file"
-                                            data-id_registro="{{MyEncryption::encrypt($row->id)}}" class="file-reg"><i
+                                            data-id_registro="{{Crypt::encrypt($row->id)}}" class="file-reg"><i
                                                 class="zmdi zmdi-book-image"></i>
                                         </a>
                                     </td>
                                     <td>
-                                        <a style="cursor:pointer;" data-id_reg="{{MyEncryption::encrypt($row->id)}}"
+                                        <a style="cursor:pointer;" data-id_reg="{{Crypt::encrypt($row->id)}}"
                                             class="delete-reg" id="delete"><i class="zmdi zmdi-delete"></i>
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="{{route('route-frm-show-inventario-secretaria-oficina',MyEncryption::encrypt($row->id))}}"
+                                        <a href="{{route('route-frm-show-inventario-secretaria-oficina',Crypt::encrypt($row->id))}}"
                                             class="edit-reg"><i class="zmdi zmdi-edit"></i>
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="{{route('route-pdf-id-inventario-secretaria-oficina',MyEncryption::encrypt($row->id))}}"
+                                        <a href="{{route('route-pdf-id-inventario-secretaria-oficina',Crypt::encrypt($row->id))}}"
                                             class="pdf-reg"><i class="zmdi zmdi-download"></i></a>
                                     </td>
                                     <td>
-                                        <a data-id_reg_print="{{MyEncryption::encrypt($row->id)}}" class="print-reg"
+                                        <a data-id_reg_print="{{Crypt::encrypt($row->id)}}" class="print-reg"
                                             style="cursor:pointer;" id="print"><i class="zmdi zmdi-print"></i>
                                         </a>
                                     </td>

@@ -110,13 +110,13 @@
                                     <td>{{$row->proveedor}}</td>
                                     <td>{{$row->entregado_por}}</td>
                                     <td>
-                                        <a style="cursor:pointer;" data-id_reg="{{MyEncryption::encrypt($row->id)}}"
+                                        <a style="cursor:pointer;" data-id_reg="{{Crypt::encrypt($row->id)}}"
                                             class="delete-reg" id="delete"><i class="zmdi zmdi-delete"></i>
                                         </a>
 
                                     </td>
                                     <td>
-                                        <a href="{{route('route-frm-show-ingreso-almacen',MyEncryption::encrypt($row->id))}}"
+                                        <a href="{{route('route-frm-show-ingreso-almacen',Crypt::encrypt($row->id))}}"
                                             class="edit-reg"><i class="zmdi zmdi-refresh"></i>
                                         </a>
                                     </td>
@@ -140,13 +140,13 @@
                                     <td>{{$row->proveedor}}</td>
                                     <td>{{$row->entregado_por}}</td>
                                     <td>
-                                        <a style="cursor:pointer;" data-id_reg="{{MyEncryption::encrypt($row->id)}}"
+                                        <a style="cursor:pointer;" data-id_reg="{{Crypt::encrypt($row->id)}}"
                                             class="delete-reg" id="delete"><i class="zmdi zmdi-delete"></i>
                                         </a>
 
                                     </td>
                                     <td>
-                                        <a href="{{route('route-frm-show-ingreso-almacen',MyEncryption::encrypt($row->id))}}"
+                                        <a href="{{route('route-frm-show-ingreso-almacen',Crypt::encrypt($row->id))}}"
                                             class="edit-reg"><i class="zmdi zmdi-refresh"></i>
                                         </a>
 

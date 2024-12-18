@@ -83,7 +83,7 @@
                                     <td>{{$row->apellidos}}</td>
                                     <td>{{$row->ci}}</td>
                                     <td>{{$row->celular}}</td>
-                                    <td><a href="{{route('route-perfil-personal-planta',MyEncryption::encrypt($row->id))}}"
+                                    <td><a href="{{route('route-perfil-personal-planta',Crypt::encrypt($row->id))}}"
                                             class="perfil-reg"><i class="zmdi zmdi-account-box"></i></a></td>
                                     </td>
                                 </tr>
@@ -94,7 +94,7 @@
                                     <td>{{$row->apellidos}}</td>
                                     <td>{{$row->ci}}</td>
                                     <td>{{$row->celular}}</td>
-                                    <td><a href="{{route('route-perfil-personal-planta',MyEncryption::encrypt($row->id))}}"
+                                    <td><a href="{{route('route-perfil-personal-planta',Crypt::encrypt($row->id))}}"
                                             class="perfil-reg"><i class="zmdi zmdi-account-box"></i></a></td>
                                     </td>
                                     </td>

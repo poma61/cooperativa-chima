@@ -48,28 +48,28 @@
 
                             <li class="item-menu-opciones">
                                 <a class="color-100"
-                                    href="{{route('route-mantenimiento-equipo-pesado',MyEncryption::encrypt($mantenimiento_equipo_pesado_equipo_pesado->id_equipo_pesado))}}">
+                                    href="{{route('route-mantenimiento-equipo-pesado',Crypt::encrypt($mantenimiento_equipo_pesado_equipo_pesado->id_equipo_pesado))}}">
                                     <i class="zmdi zmdi-wrench"></i><span> Mantenimiento</span> </a>
                             </li>
 
                             <li class="item-menu-opciones">
                                 <a class="color-100"
-                                    href="{{route('route-frm-new-mantenimiento-equipo-pesado',MyEncryption::encrypt($mantenimiento_equipo_pesado_equipo_pesado->id_equipo_pesado))}}">
+                                    href="{{route('route-frm-new-mantenimiento-equipo-pesado',Crypt::encrypt($mantenimiento_equipo_pesado_equipo_pesado->id_equipo_pesado))}}">
                                     <i class="zmdi zmdi-plus"></i> <span>Nuevo Mantenimiento</span></a>
                             </li>
 
                             <!-- Acciones de registro -->
                             <li class="item-menu-opciones">
                                 <a class="color-100"
-                                    href="{{route('route-frm-show-mantenimiento-equipo-pesado',MyEncryption::encrypt($mantenimiento_equipo_pesado_equipo_pesado->id))}}">
+                                    href="{{route('route-frm-show-mantenimiento-equipo-pesado',Crypt::encrypt($mantenimiento_equipo_pesado_equipo_pesado->id))}}">
                                     <i class="zmdi zmdi-border-color"></i><span> Actualizar</span> </a>
                             </li>
 
                             <li class="item-menu-opciones">
                                 <a class="color-100" style="cursor:pointer;" id="btn-accion"
                                     data-action="confirm-destroy"
-                                    data-id_reg="{{MyEncryption::encrypt($mantenimiento_equipo_pesado_equipo_pesado->id)}}"
-                                    data-id_equipo_pesado="{{MyEncryption::encrypt($mantenimiento_equipo_pesado_equipo_pesado->id_equipo_pesado)}}">
+                                    data-id_reg="{{Crypt::encrypt($mantenimiento_equipo_pesado_equipo_pesado->id)}}"
+                                    data-id_equipo_pesado="{{Crypt::encrypt($mantenimiento_equipo_pesado_equipo_pesado->id_equipo_pesado)}}">
                                     <i class="zmdi zmdi-delete"></i><span> Eliminar</span>
                                 </a>
                             </li>

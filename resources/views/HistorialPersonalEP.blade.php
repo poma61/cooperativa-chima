@@ -54,30 +54,30 @@
                     <ul class="list-menu-opciones">
 
                         <li class="item-menu-opciones">
-                            <a href="{{route('route-perfil-personal-planta',MyEncryption::encrypt($personal_ep->id))}}">Perfil
+                            <a href="{{route('route-perfil-personal-planta',Crypt::encrypt($personal_ep->id))}}">Perfil
                                 <i class="zmdi zmdi-account-box"></i></a>
                         </li>
 
                         <li class="item-menu-opciones">
                             <a
-                                href="{{route('route-historial-personal-planta',MyEncryption::encrypt($personal_ep->id))}}">Historial
+                                href="{{route('route-historial-personal-planta',Crypt::encrypt($personal_ep->id))}}">Historial
                                 <i class="zmdi zmdi-file-text"></i></a>
                         </li>
 
                         <li class="item-menu-opciones">
                             <a
-                                href="{{route('route-frm-new-historial-personal-planta',MyEncryption::encrypt($personal_ep->id))}}">Agregar
+                                href="{{route('route-frm-new-historial-personal-planta',Crypt::encrypt($personal_ep->id))}}">Agregar
                                 Historial
                                 <i class="zmdi zmdi-plus-circle-o"></i></a>
                         </li>
                         <li class="item-menu-opciones">
                             <a
-                                href="{{route('route-pdf-historial-personal-planta',MyEncryption::encrypt($personal_ep->id))}}">PDF
+                                href="{{route('route-pdf-historial-personal-planta',Crypt::encrypt($personal_ep->id))}}">PDF
                                 <i class="zmdi zmdi-download"></i></a>
                         </li>
                         <li class="item-menu-opciones">
                             <a
-                                href="{{route('route-imprimir-historial-personal-planta',MyEncryption::encrypt($personal_ep->id))}}">Imprimir
+                                href="{{route('route-imprimir-historial-personal-planta',Crypt::encrypt($personal_ep->id))}}">Imprimir
                                 <i class="zmdi zmdi-print"></i></a>
                         </li>
 
@@ -139,7 +139,7 @@
                                     <td>{{$row->num_reg}}</td>
                                     <td>{{date_format(date_create($row->fecha),'d/m/Y')}}</td>
                                     <td>{{$row->estado}}</td>
-                                    <td><a href="{{route('route-ver-historial-personal-planta',MyEncryption::encrypt($row->id))}}"
+                                    <td><a href="{{route('route-ver-historial-personal-planta',Crypt::encrypt($row->id))}}"
                                             class="ver-historial-reg">
                                             <i class="zmdi zmdi-file-text"></i></a></td>
                                 </tr>
@@ -151,7 +151,7 @@
                                     <td>{{$row->num_reg}}</td>
                                     <td>{{$row->fecha}}</td>
                                     <td>{{$row->estado}}</td>
-                                    <td><a href="{{route('route-ver-historial-personal-planta',MyEncryption::encrypt($row->id))}}"
+                                    <td><a href="{{route('route-ver-historial-personal-planta',Crypt::encrypt($row->id))}}"
                                             class="ver-historial-reg">
                                             <i class="zmdi zmdi-file-text"></i></a></td>
                                 </tr>

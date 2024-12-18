@@ -7,7 +7,7 @@ use App\Models\RegistroComisionesInformes;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Protected\MyEncryption;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
@@ -76,7 +76,7 @@ class ControllerRegistroComisionesInformes extends Controller
     public function show($id)
     {
         try {
-            $registro_comisiones_informes = RegistroComisionesInformes::where('status', true)->find(MyEncryption::decrypt($id));
+            $registro_comisiones_informes = RegistroComisionesInformes::where('status', true)->find(Crypt::decrypt($id));
             if ($registro_comisiones_informes == null) {
                 return view('PageNotFound', ['tipo_error' => 'NULL']);
             }
@@ -105,7 +105,7 @@ class ControllerRegistroComisionesInformes extends Controller
         }
 
         try {
-            $registro_comisiones_informes = RegistroComisionesInformes::where('status', true)->find(MyEncryption::decrypt($request->input('id-reg')));
+            $registro_comisiones_informes = RegistroComisionesInformes::where('status', true)->find(Crypt::decrypt($request->input('id-reg')));
 
             if ($registro_comisiones_informes == null) {
                 $validar['errors_db'] = true;
@@ -154,7 +154,7 @@ class ControllerRegistroComisionesInformes extends Controller
         //esto podria causar un error al desencriptar el id o caso contrario no se encuentre el registro
         //en la base de datos, entonces devolvemos un ERROR
         try {
-            $registro_comisiones_informes = RegistroComisionesInformes::where('status', true)->find(MyEncryption::decrypt($request->input('id-reg')));
+            $registro_comisiones_informes = RegistroComisionesInformes::where('status', true)->find(Crypt::decrypt($request->input('id-reg')));
 
             if ($registro_comisiones_informes == null) {
                 $respuesta = [
@@ -262,7 +262,7 @@ class ControllerRegistroComisionesInformes extends Controller
     {
         try {
             $registro_comisiones_informes = RegistroComisionesInformes::where('status', true)
-                ->find(MyEncryption::decrypt($request->input('id-reg')));
+                ->find(Crypt::decrypt($request->input('id-reg')));
 
             if ($registro_comisiones_informes == null) {
                 $respuesta = [
@@ -306,7 +306,7 @@ class ControllerRegistroComisionesInformes extends Controller
     {
 
         try {
-            $registro_comisiones_informes = RegistroComisionesInformes::where('status', true)->find(MyEncryption::decrypt($id));
+            $registro_comisiones_informes = RegistroComisionesInformes::where('status', true)->find(Crypt::decrypt($id));
             if ($registro_comisiones_informes == null) {
                 return view('PageNotFound', ['tipo_error' => 'NULL']);
             }
@@ -331,7 +331,7 @@ class ControllerRegistroComisionesInformes extends Controller
     {
         try {
             $registro_comisiones_informes = RegistroComisionesInformes::where('status', true)
-                ->find(MyEncryption::decrypt($request->input('id-reg')));
+                ->find(Crypt::decrypt($request->input('id-reg')));
 
             if ($registro_comisiones_informes == null) {
                 $respuesta = [

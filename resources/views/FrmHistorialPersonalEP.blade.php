@@ -50,7 +50,7 @@
                     <ul class="list-menu-opciones">
                         <li class="item-menu-opciones">
                             <a
-                                href="{{route('route-historial-personal-planta',MyEncryption::encrypt($personal_ep->id))}}">Historial
+                                href="{{route('route-historial-personal-planta',Crypt::encrypt($personal_ep->id))}}">Historial
                                 <i class="zmdi zmdi-file-text"></i></a>
                         </li>
                     </ul>
@@ -102,12 +102,12 @@
 
                     <form class="mi-form-control" id="mi-form" enctype="multipart/form-data">
                         @if($historial_personal_ep->id==0)
-                        <input type="hidden" value="{{MyEncryption::encrypt($personal_ep->id)}}" name="id-personal-ep">
+                        <input type="hidden" value="{{Crypt::encrypt($personal_ep->id)}}" name="id-personal-ep">
                         @endif
 
                         @if($historial_personal_ep->id!=0)
                         <input type="hidden" name="id-reg"
-                            value="{{MyEncryption::encrypt($historial_personal_ep->id)}}">
+                            value="{{Crypt::encrypt($historial_personal_ep->id)}}">
                         @endif
 
                         <div class="form-control-colum-2">

@@ -60,7 +60,7 @@
                                 <input type="number" name="numero-de-registro" disabled
                                     value="{{$ingreso_almacen->num_reg}}">
                                 <input type="hidden" name="id-reg"
-                                    value="{{MyEncryption::encrypt($ingreso_almacen->id)}}">
+                                    value="{{Crypt::encrypt($ingreso_almacen->id)}}">
                                 @endif
                             </div>
                             <div class="campo-form-control-2">

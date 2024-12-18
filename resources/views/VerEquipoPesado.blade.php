@@ -49,36 +49,36 @@
 
                             <li class="item-menu-opciones">
                                 <a class="color-100"
-                                    href="{{route('route-mantenimiento-equipo-pesado',MyEncryption::encrypt($equipo_pesado->id))}}">
+                                    href="{{route('route-mantenimiento-equipo-pesado',Crypt::encrypt($equipo_pesado->id))}}">
                                     <i class="zmdi zmdi-wrench"></i><span> Mantenimiento</span> </a>
                             </li>
 
                             <li class="item-menu-opciones">
                                 <a class="color-100"
-                                    href="{{route('route-frm-show-equipo-pesado',MyEncryption::encrypt($equipo_pesado->id))}}">
+                                    href="{{route('route-frm-show-equipo-pesado',Crypt::encrypt($equipo_pesado->id))}}">
                                     <i class="zmdi zmdi-border-color"></i><span> Actualizar</span> </a>
                             </li>
                             <li class="item-menu-opciones">
                                 <a class="color-100" style="cursor:pointer;" id="btn-accion"
                                     data-action="confirm-destroy"
-                                    data-id_reg="{{MyEncryption::encrypt($equipo_pesado->id)}}">
+                                    data-id_reg="{{Crypt::encrypt($equipo_pesado->id)}}">
                                     <i class="zmdi zmdi-delete"></i><span> Eliminar</span></a>
                             </li>
 
                             <li class="item-menu-opciones">
                                 <a class="color-100"
-                                    href="{{route('route-ver-equipo-pesado',MyEncryption::encrypt($equipo_pesado->id))}}">
+                                    href="{{route('route-ver-equipo-pesado',Crypt::encrypt($equipo_pesado->id))}}">
                                     <i class="zmdi zmdi-file-text"></i><span> Registro</span></a>
                             </li>
 
                             <li class="item-menu-opciones">
                                 <a class="color-100"
-                                    href="{{route('route-pdf-ver-equipo-pesado',MyEncryption::encrypt($equipo_pesado->id))}}">
+                                    href="{{route('route-pdf-ver-equipo-pesado',Crypt::encrypt($equipo_pesado->id))}}">
                                     <i class="zmdi zmdi-download"></i><span> PDF</span> </a>
                             </li>
                             <li class="item-menu-opciones">
                                 <a class="color-100"
-                                    href="{{route('route-imprimir-ver-equipo-pesado',MyEncryption::encrypt($equipo_pesado->id))}}">
+                                    href="{{route('route-imprimir-ver-equipo-pesado',Crypt::encrypt($equipo_pesado->id))}}">
                                     <i class="zmdi zmdi-print"></i><span> Imprimir</span></a>
                             </li>
 

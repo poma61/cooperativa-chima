@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\RegistroCorrespondenciasRe;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Exception;
-use Illuminate\Protected\MyEncryption;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Psy\VersionUpdater\Downloader;
@@ -79,7 +79,7 @@ class ControllerRegistroCorrespondenciasRe extends Controller
     public function show($id)
     {
         try {
-            $registro_correspondencias_re = RegistroCorrespondenciasRe::where('status', true)->find(MyEncryption::decrypt($id));
+            $registro_correspondencias_re = RegistroCorrespondenciasRe::where('status', true)->find(Crypt::decrypt($id));
             if ($registro_correspondencias_re == null) {
                 return view('PageNotFound', ['tipo_error' => 'NULL']);
             }
@@ -108,7 +108,7 @@ class ControllerRegistroCorrespondenciasRe extends Controller
         }
 
         try {
-            $registro_correspondencias_re = RegistroCorrespondenciasRe::where('status', true)->find(MyEncryption::decrypt($request->input('id-reg')));
+            $registro_correspondencias_re = RegistroCorrespondenciasRe::where('status', true)->find(Crypt::decrypt($request->input('id-reg')));
 
             if ($registro_correspondencias_re == null) {
                 $validar['errors_db'] = true;
@@ -157,7 +157,7 @@ class ControllerRegistroCorrespondenciasRe extends Controller
         //esto podria causar un error al desencriptar el id o caso contrario no se encuentre el registro
         //en la base de datos, entonces devolvemos un ERROR
         try {
-            $registro_correspondencias_re = RegistroCorrespondenciasRe::where('status', true)->find(MyEncryption::decrypt($request->input('id-reg')));
+            $registro_correspondencias_re = RegistroCorrespondenciasRe::where('status', true)->find(Crypt::decrypt($request->input('id-reg')));
 
             if ($registro_correspondencias_re == null) {
                 $respuesta = [
@@ -215,7 +215,7 @@ class ControllerRegistroCorrespondenciasRe extends Controller
 
     public function verRegistro($id){
         try {
-            $registro_correspondencias_re = RegistroCorrespondenciasRe::where('status', true)->find(MyEncryption::decrypt($id));
+            $registro_correspondencias_re = RegistroCorrespondenciasRe::where('status', true)->find(Crypt::decrypt($id));
             if ($registro_correspondencias_re == null) {
                 return view('PageNotFound', ['tipo_error' => 'NULL']);
             }
@@ -282,7 +282,7 @@ class ControllerRegistroCorrespondenciasRe extends Controller
 
 
        try {
-           $registro_correspondencias_re = RegistroCorrespondenciasRe::where('status', true)->find(MyEncryption::decrypt($id));
+           $registro_correspondencias_re = RegistroCorrespondenciasRe::where('status', true)->find(Crypt::decrypt($id));
            if ($registro_correspondencias_re == null) {
                return view('PageNotFound', ['tipo_error' => 'NULL']);
            }
@@ -309,7 +309,7 @@ class ControllerRegistroCorrespondenciasRe extends Controller
      {
   
         try {
-            $registro_correspondencias_re = RegistroCorrespondenciasRe::where('status', true)->find(MyEncryption::decrypt($id));
+            $registro_correspondencias_re = RegistroCorrespondenciasRe::where('status', true)->find(Crypt::decrypt($id));
             if ($registro_correspondencias_re == null) {
                 return view('PageNotFound', ['tipo_error' => 'NULL']);
             }

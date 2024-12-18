@@ -86,7 +86,7 @@
                                         <td>{{$row->codigo_de_inventario_interno}}</td>
                                         <td>{{$row->fabricante}}</td>
                                         <td>
-                                            <a href="{{route('route-ver-equipo-pesado',MyEncryption::encrypt($row->id))}}"
+                                            <a href="{{route('route-ver-equipo-pesado',Crypt::encrypt($row->id))}}"
                                                 class="perfil-reg"><i class="zmdi zmdi-file-text"></i></a>
                                         </td>
 
@@ -102,7 +102,7 @@
                                         <td>{{$row->codigo_de_inventario_interno}}</td>
                                         <td>{{$row->fabricante}}</td>
                                         <td>
-                                            <a href="{{route('route-ver-equipo-pesado',MyEncryption::encrypt($row->id))}}"
+                                            <a href="{{route('route-ver-equipo-pesado',Crypt::encrypt($row->id))}}"
                                                 class="perfil-reg"><i class="zmdi zmdi-file-text"></i></a>
                                         </td>
                                     </tr>

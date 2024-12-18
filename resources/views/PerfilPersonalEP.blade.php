@@ -51,33 +51,33 @@
                     <ul class="list-menu-opciones">
                         <li class="item-menu-opciones">
                             <a
-                                href="{{route('route-historial-personal-planta',MyEncryption::encrypt($personal_ep->id))}}">Historial
+                                href="{{route('route-historial-personal-planta',Crypt::encrypt($personal_ep->id))}}">Historial
                                 <i class="zmdi zmdi-file-text"></i></a>
                         </li>
                         <li class="item-menu-opciones">
-                            <a href="{{route('route-perfil-personal-planta',MyEncryption::encrypt($personal_ep->id))}}"
+                            <a href="{{route('route-perfil-personal-planta',Crypt::encrypt($personal_ep->id))}}"
                                 class="perfil-reg">Perfil <i class="zmdi zmdi-account-box"></i></a>
                         </li>
 
                         <li class="item-menu-opciones">
                             <a
-                                href="{{route('route-frm-show-personal-planta',MyEncryption::encrypt($personal_ep->id))}}">Actualizar
+                                href="{{route('route-frm-show-personal-planta',Crypt::encrypt($personal_ep->id))}}">Actualizar
                                 <i class="zmdi zmdi-border-color"></i></a>
                         </li>
                         <li class="item-menu-opciones">
                             <a style="cursor:pointer;" id="btn-accion" data-accion="confirm-destroy"
-                                data-id_reg="{{MyEncryption::encrypt($personal_ep->id)}}">Eliminar <i
+                                data-id_reg="{{Crypt::encrypt($personal_ep->id)}}">Eliminar <i
                                     class="zmdi zmdi-delete"></i></a>
                         </li>
 
                         <li class="item-menu-opciones">
                             <a
-                                href="{{route('route-pdf-perfil-personal-planta',MyEncryption::encrypt($personal_ep->id))}}">PDF
+                                href="{{route('route-pdf-perfil-personal-planta',Crypt::encrypt($personal_ep->id))}}">PDF
                                 <i class="zmdi zmdi-download"></i></i></a>
                         </li>
                         <li class="item-menu-opciones">
                             <a
-                                href="{{route('route-imprimir-perfil-personal-planta',MyEncryption::encrypt($personal_ep->id))}}">Imprimir
+                                href="{{route('route-imprimir-perfil-personal-planta',Crypt::encrypt($personal_ep->id))}}">Imprimir
                                 <i class="zmdi zmdi-print"></i></i></a>
                         </li>
                     </ul>

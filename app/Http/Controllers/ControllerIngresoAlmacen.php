@@ -7,7 +7,7 @@ use App\Models\IngresoAlmacen;
 use App\Models\HistoryDB;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Exception;
-use Illuminate\Protected\MyEncryption;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
@@ -72,7 +72,7 @@ class ControllerIngresoAlmacen extends Controller
     public function show($id)
     {
         try {
-            $ingreso_almacen = IngresoAlmacen::where('status', true)->find(MyEncryption::decrypt($id));
+            $ingreso_almacen = IngresoAlmacen::where('status', true)->find(Crypt::decrypt($id));
             if ($ingreso_almacen == null) {
                 return view('PageNotFound', ['tipo_error' => 'NULL']);
             }
@@ -101,7 +101,7 @@ class ControllerIngresoAlmacen extends Controller
         }
 
         try {
-            $ingreso_almacen = IngresoAlmacen::where('status', true)->find(MyEncryption::decrypt($request->input('id-reg')));
+            $ingreso_almacen = IngresoAlmacen::where('status', true)->find(Crypt::decrypt($request->input('id-reg')));
 
             if ($ingreso_almacen == null) {
                 $validar['errors_db'] = true;
@@ -144,7 +144,7 @@ class ControllerIngresoAlmacen extends Controller
         //esto podria causar un error al desencriptar el id o caso contrario no se encuentre el registro
         //en la base de datos, entonces devolvemos un ERROR
         try {
-            $ingreso_almacen = IngresoAlmacen::where('status', true)->find(MyEncryption::decrypt($request->input('id-reg')));
+            $ingreso_almacen = IngresoAlmacen::where('status', true)->find(Crypt::decrypt($request->input('id-reg')));
 
             if ($ingreso_almacen == null) {
                 $respuesta = [

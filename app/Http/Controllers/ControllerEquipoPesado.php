@@ -7,7 +7,7 @@ use App\Models\HistoryDB;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Protected\MyEncryption;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
@@ -90,7 +90,7 @@ class ControllerEquipoPesado extends Controller
     public function show($id)
     {
         try {
-            $equipo_pesado = EquipoPesado::where('status', true)->find(MyEncryption::decrypt($id));
+            $equipo_pesado = EquipoPesado::where('status', true)->find(Crypt::decrypt($id));
             if ($equipo_pesado == null) {
                 return view('PageNotFound', ['tipo_error' => 'NULL']);
             }
@@ -119,7 +119,7 @@ class ControllerEquipoPesado extends Controller
         }
 
         try {
-            $equipo_pesado = EquipoPesado::where('status', true)->find(MyEncryption::decrypt($request->input('id-reg')));
+            $equipo_pesado = EquipoPesado::where('status', true)->find(Crypt::decrypt($request->input('id-reg')));
 
             if ($equipo_pesado == null) {
                 $validar['errors_db'] = true;
@@ -181,7 +181,7 @@ class ControllerEquipoPesado extends Controller
         //esto podria causar un error al desencriptar el id o caso contrario no se encuentre el registro
         //en la base de datos, entonces devolvemos un ERROR
         try {
-            $equipo_pesado = EquipoPesado::where('status', true)->find(MyEncryption::decrypt($request->input('id-reg')));
+            $equipo_pesado = EquipoPesado::where('status', true)->find(Crypt::decrypt($request->input('id-reg')));
 
             if ($equipo_pesado == null) {
                 $respuesta = [
@@ -236,7 +236,7 @@ class ControllerEquipoPesado extends Controller
     public function verRegistro($id)
     {
         try {
-            $equipo_pesado = EquipoPesado::where('status', true)->find(MyEncryption::decrypt($id));
+            $equipo_pesado = EquipoPesado::where('status', true)->find(Crypt::decrypt($id));
             if ($equipo_pesado == null) {
                 return view('PageNotFound', ['tipo_error' => 'NULL']);
             }
@@ -254,7 +254,7 @@ class ControllerEquipoPesado extends Controller
     public function imprimirRegistrosId($id)
     {
         try {
-            $equipo_pesado = EquipoPesado::where('status', true)->find(MyEncryption::decrypt($id));
+            $equipo_pesado = EquipoPesado::where('status', true)->find(Crypt::decrypt($id));
             if ($equipo_pesado == null) {
                 return view('PageNotFound', ['tipo_error' => 'NULL']);
             }
@@ -281,7 +281,7 @@ class ControllerEquipoPesado extends Controller
     {
 
         try {
-            $equipo_pesado = EquipoPesado::where('status', true)->find(MyEncryption::decrypt($id));
+            $equipo_pesado = EquipoPesado::where('status', true)->find(Crypt::decrypt($id));
             if ($equipo_pesado == null) {
                 return view('PageNotFound', ['tipo_error' => 'NULL']);
             }

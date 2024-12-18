@@ -53,7 +53,7 @@
                     <form action="" class="mi-form-control" id="mi-form">
 
                         @if($personal_em->id!=0)
-                        <input type="hidden" value="{{MyEncryption::encrypt($personal_em->id)}}" name="id-reg">
+                        <input type="hidden" value="{{Crypt::encrypt($personal_em->id)}}" name="id-reg">
                         @endif
                         <p class="form-aviso-campos"><i class="zmdi zmdi-label"></i> INFORMACION DEL EMPLEADO</p>
 

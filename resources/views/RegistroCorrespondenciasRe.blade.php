@@ -97,7 +97,7 @@
                                         <td>{{$row->cuenta}}</td>
 
                                         <td>
-                                            <a href="{{route('route-ver-registro-correspondencias-re',MyEncryption::encrypt($row->id))}}"
+                                            <a href="{{route('route-ver-registro-correspondencias-re',Crypt::encrypt($row->id))}}"
                                                 class="perfil-reg"><i class="zmdi zmdi-file-text"></i></a>
                                         </td>
 
@@ -111,7 +111,7 @@
                                         <td>{{date_format(date_create($row->fecha),'d/m/Y')}}</td>
                                         <td>{{$row->cuenta}}</td>
                                         <td>
-                                            <a href="{{route('route-ver-registro-correspondencias-re',MyEncryption::encrypt($row->id))}}"
+                                            <a href="{{route('route-ver-registro-correspondencias-re',Crypt::encrypt($row->id))}}"
                                                 class="perfil-reg"><i class="zmdi zmdi-file-text"></i></a>
                                         </td>
                                     </tr>
