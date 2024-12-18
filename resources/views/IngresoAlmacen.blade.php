@@ -62,12 +62,6 @@
                         <select class="cantidad-table-rows">
                             <option value="20" selected>Cantidad de Filas 20</option>
                             <option value="50">Cantidad de Filas 50</option>
-                            <option value="100">Cantidad de Filas 100</option>
-                            <option value="150">Cantidad de Filas 150</option>
-                            <option value="200">Cantidad de Filas 200</option>
-                            <option value="300">Cantidad de Filas 300</option>
-                            <option value="350">Cantidad de Filas 350</option>
-                            <option value="500">Cantidad de Filas 500</option>
                         </select>
                         <input type="text" name="buscar" class="busqueda" placeholder="Buscar...">
                     </div>

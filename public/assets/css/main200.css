@@ -1,7 +1,7 @@
 
 * {
     scroll-behavior: smooth;
-    font-size: 17px;
+
 }
 
 @media only screen and (max-width:900px) {
@@ -24,8 +24,8 @@
 }
 
 .opciones-header .logo__img {
-    width: 78px;
-    height: 78px;
+    width: 40px;
+    height: 40px;
 }
 
 .opciones-header .opciones__p {
@@ -77,7 +77,7 @@
 
 /*titles*/
 .title-info-color-100 {
-    background-image: linear-gradient(to top, #9890e3 0%, #b1f4cf 100%);
+    background-color: #0096a6;
     padding: 15px;
     font-size: 19px;
     letter-spacing: 5px;
@@ -90,7 +90,7 @@
 }
 
 .title-info-color-200 {
-    background-image: linear-gradient(109.6deg, rgba(61, 245, 167, 1) 11.2%, rgba(9, 111, 224, 1) 91.1%);
+    background-color: #0096a6;
     padding: 15px;
     font-size: 19px;
     letter-spacing: 5px;
@@ -268,40 +268,25 @@
     border: none;
     width: 220px;
     height: 50px;
-    background-color: #2760aa;
-    color: #fff;
+    border: 1px solid #949494;
+    color: #020202;
     text-align: center;
     border-radius: 4px;
     outline: none;
-    transition: background, 1s;
     margin-bottom: 10px;
 }
 
 
-.container-data-table .selector-data-table select:hover {
-    background: #327ddf;
-}
-
 .container-data-table .selector-data-table input {
     border: none;
     height: 50px;
-    background-color: #2760aa;
-    color: #fff;
+    border: 1px solid #949494;
+    color: #000000;
     border-radius: 4px;
     padding: 10px;
     outline: none;
     margin-bottom: 10px;
     min-width: 60%;
-}
-
-.container-data-table .selector-data-table input::placeholder {
-    color: #fff;
-}
-
-
-
-.container-data-table .selector-data-table input:focus {
-    background: #327ddf;
 }
 
 .container-data-table .table-responsive {
@@ -360,35 +345,26 @@
 }
 
 .container-data-table .paginador button {
-    background-color: #2760aa;
-    outline: none;
-    border: none;
+    border: 1px solid #0096ec;
     padding: 10px;
     border-radius: 4px;
-    transition: background, 1s;
     margin-left: 2px;
     margin-right: 2px;
-    color: #ffffff;
+    color: #000000;
+    background-color: #fff !important;
 }
 
-.container-data-table .paginador button:hover {
-    background: #327ddf;
-}
+
+
 
 .container-data-table .paginador select {
-    background-color: #2760aa;
+    border: 1px solid #0096ec;
     outline: none;
-    border: none;
     padding: 10px;
     border-radius: 4px;
-    transition: background, 1s;
-    color: #ffffff;
+    color: #000000;
+    background-color: #fff !important;
 }
-
-.container-data-table .paginador select:hover {
-    background: #327ddf;
-}
-
 
 
 .container-data-table .table-responsive #tabla-datos .perfil-reg {
@@ -1008,7 +984,7 @@ ventana modal o popup o vetana emergente
 .container-popup .popup {
     width: 500px;
     height: fit-content;
-    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+    background-color: #d4d4d4;
     border-radius: 10px;
     padding: 20px;
     display: flex;
@@ -1117,7 +1093,7 @@ ventana modal o popup o vetana emergente
     margin: 5px 0px;
     width: 500px;
     height: fit-content;
-    background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
+    background-color: #d4d4d4;
     border-radius: 10px;
     padding: 10px;
     display: flex;
@@ -1168,7 +1144,7 @@ utilizamos el mismo container popup
 .container-popup .popup-archivo {
     width: fit-content;
     height: fit-content;
-    background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+    background-color: #dfdfdf;
     border-radius: 3px;
     padding: 20px;
     display: flex;
@@ -1197,7 +1173,7 @@ utilizamos el mismo container popup
 
 .container-popup .popup-archivo #close-popup-all {
     display: inline-block;
-    color: red;
+    color: rgb(0, 0, 0);
     font-size: 30px;
     position: absolute;
     top: 5px;

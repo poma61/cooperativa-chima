@@ -1,9 +1,6 @@
 body {
     background-color: #8BC6EC;
     background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
-
-
-
 }
 
 * {
@@ -32,8 +29,8 @@ body {
 }
 
 .opciones-header .logo__img {
-    width: 78px;
-    height: 78px;
+    width: 40px;
+    height: 40px;
 }
 
 .opciones-header .opciones__p {
@@ -217,7 +214,7 @@ ventana modal o popup o vetana emergente
 .container-popup .popup {
     width: 500px;
     height: fit-content;
-    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+    background-color: #d4d4d4;
     border-radius: 10px;
     padding: 20px;
     display: flex;
@@ -326,7 +323,7 @@ ventana modal o popup o vetana emergente
     margin: 5px 0px;
     width: 500px;
     height: fit-content;
-    background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
+    background-color: #d4d4d4;
     border-radius: 10px;
     padding: 10px;
     display: flex;
@@ -377,7 +374,7 @@ utilizamos el mismo container popup
 .container-popup .popup-archivo {
     width: fit-content;
     height: fit-content;
-    background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+    background-color: #dfdfdf;
     border-radius: 3px;
     padding: 20px;
     display: flex;
@@ -406,7 +403,7 @@ utilizamos el mismo container popup
 
 .container-popup .popup-archivo #close-popup-all {
     display: inline-block;
-    color: red;
+    color: rgb(0, 0, 0);
     font-size: 30px;
     position: absolute;
     top: 5px;
